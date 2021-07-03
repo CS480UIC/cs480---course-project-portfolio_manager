@@ -11,6 +11,7 @@ portfolio_manager
 
 # Author(s)
 Arvind Gupta
+Stefan Vukovic
 
 
 # Database description
