@@ -55,3 +55,8 @@ create table portfolio (
 );
 
 desc portfolio;
+
+insert into users(user_name, password, email_id , contact , is_admin ) values
+	('Vivek', 'vivek123', 'vivek@xyz.com', '777-775-4555', true),
+    ('Arvind', 'arvind123', 'arvind@xyz.com', '777-775-4556', true),
+    ('Stefan', 'stefan123', 'stefan@xyz.com', '777-775-4557', true);
