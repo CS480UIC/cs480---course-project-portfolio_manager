@@ -9,4 +9,11 @@ create table user(
 	email_id varchar(20), 
         contact varchar(15),
         PRIMARY KEY (user_id)
-      );
+      	);
+      
+create table stock_category(
+	category_id INT AUTO_INCREMENT,
+        industry varchar(30),
+        market_cap varchar(30),
+	PRIMARY KEY (category_id)
+	);
