@@ -27,3 +27,5 @@ PortfolioManager/target/
 PortfolioManager/.project/
 PortfolioManager/.gitignore/
 PortfolioManager/.classpath/
+PortFolio-Frontend/node_modules
+
