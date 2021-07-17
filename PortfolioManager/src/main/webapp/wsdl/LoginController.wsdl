@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://controller.cs480.uic.edu" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://controller.cs480.uic.edu" xmlns:intf="http://controller.cs480.uic.edu" xmlns:tns1="http://model.cs480.uic.edu" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://controller.cs480.uic.edu" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://model.cs480.uic.edu"/>
+   <element name="getUser">
+    <complexType>
+     <sequence>
+      <element name="userName" type="xsd:string"/>
+      <element name="password" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getUserResponse">
+    <complexType>
+     <sequence>
+      <element name="getUserReturn" type="tns1:User"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="testService">
+    <complexType>
+     <sequence>
+      <element name="userName" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="testServiceResponse">
+    <complexType>
+     <sequence>
+      <element name="testServiceReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+  <schema elementFormDefault="qualified" targetNamespace="http://model.cs480.uic.edu" xmlns="http://www.w3.org/2001/XMLSchema">
+   <complexType name="User">
+    <sequence>
+     <element name="admin" type="xsd:boolean"/>
+     <element name="contactNumber" nillable="true" type="xsd:string"/>
+     <element name="emailID" nillable="true" type="xsd:string"/>
+     <element name="password" nillable="true" type="xsd:string"/>
+     <element name="userName" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="getUserResponse">
+
+      <wsdl:part element="impl:getUserResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getUserRequest">
+
+      <wsdl:part element="impl:getUser" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="testServiceRequest">
+
+      <wsdl:part element="impl:testService" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="testServiceResponse">
+
+      <wsdl:part element="impl:testServiceResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="LoginController">
+
+      <wsdl:operation name="getUser">
+
+         <wsdl:input message="impl:getUserRequest" name="getUserRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getUserResponse" name="getUserResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="testService">
+
+         <wsdl:input message="impl:testServiceRequest" name="testServiceRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:testServiceResponse" name="testServiceResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="LoginControllerSoapBinding" type="impl:LoginController">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="getUser">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getUserRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getUserResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="testService">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="testServiceRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="testServiceResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="LoginControllerService">
+
+      <wsdl:port binding="impl:LoginControllerSoapBinding" name="LoginController">
+
+         <wsdlsoap:address location="http://localhost:8080/PortfolioManager/services/LoginController"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
