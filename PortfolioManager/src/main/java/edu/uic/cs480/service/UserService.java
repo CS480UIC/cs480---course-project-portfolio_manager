@@ -27,5 +27,5 @@ public interface UserService {
 
 	int updateUser(int userId, String contact);
 
-	int deleteUser(int userId);
+	void deleteUser(int userId);
 }

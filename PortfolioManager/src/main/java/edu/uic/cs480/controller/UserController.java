@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -39,6 +40,13 @@ public class UserController {
 	@PostMapping("/api/addUser")
 	public ResponseEntity<?> createUser(@RequestBody User user) {
 		int id = userService.createUser(user);
+		return ResponseEntity.ok().body("User Created with ID : " + id);
+	}
+	
+	@PutMapping("/api/updateUser/{userId}/{contact}")
+	public ResponseEntity<?> updateUser(@PathVariable("userId") int userId,
+			@PathVariable("contact") String contact) {
+		int id = userService.updateUser(userId, contact);
 		return ResponseEntity.ok().body("User Created with ID : " + id);
 	}
 }

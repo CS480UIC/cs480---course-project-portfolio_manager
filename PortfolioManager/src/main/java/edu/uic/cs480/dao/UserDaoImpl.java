@@ -3,6 +3,7 @@ package edu.uic.cs480.dao;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -42,13 +43,18 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public int updateUser(int userId, String contact) {
-		// TODO Auto-generated method stub
-		return 0;
+		Session session = sessionFactory.getCurrentSession();
+		User user = session.byId(User.class).load(userId);
+		user.setContact(contact);
+		session.flush();
+		
+		return user.getUser_id();
 	}
 
 	@Override
-	public int deleteUser(int userId) {
-		// TODO Auto-generated method stub
-		return 0;
+	public void deleteUser(int userId) {
+		Session session = sessionFactory.getCurrentSession();
+		User user = session.byId(User.class).load(userId);
+		session.delete(user);
 	}
 }
