@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from "@angular/router";
+import { AppServiceService } from '../app-service.service';
 
 @Component({
   selector: 'app-signup',
@@ -9,27 +10,40 @@ import { Router, ActivatedRoute } from "@angular/router";
 export class SignupComponent implements OnInit {
 
   title = 'PortFolio-Frontend';
-  public cntryName: any;
-  public country = [];
-  public cntryCode: any;
-  public code = [];
-  public selectedCountryCode: string = "";
-  public firstName: string = "";
-  public lastName: string = "";
-  public emailId: string= "";
+  public userName: string = "";
+  public emailId: string = "";
   public phoneNumber: string = "";
   public userPassword: string = "";
-  
+
   constructor(
     private _router: Router,
-    private route: ActivatedRoute
-  ) {}
+    private route: ActivatedRoute,
+    private appService: AppServiceService
+  ) { }
 
-  ngOnInit(){};
+  ngOnInit() { };
 
   goToSignIn() {
     this._router.navigate(["/"]);
   }
-  onSignUp() {}
-
+  onSignUp() {
+    if (!this.userName) {
+      alert("enter User Name");
+    } else if (!this.emailId) {
+      alert("enter mobile");
+    } else if (!this.phoneNumber) {
+      alert("Invalid email");
+    } else if (!this.userPassword) {
+      alert("enter password");
+    } else {
+      this.appService.signupFunction(this.userName, this.emailId, this.phoneNumber, this.userPassword).subscribe(
+        apiResponse => {
+          console.log(apiResponse);
+        },
+        err => {
+          alert("some error occured");
+        }
+      );
+    }
+  }
 }

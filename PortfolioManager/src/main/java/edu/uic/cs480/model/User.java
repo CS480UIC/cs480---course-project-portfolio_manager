@@ -21,7 +21,7 @@ public class User {
 	private String password;
 	private String email_id;
 	private String contact;
-	private boolean is_admin;
+	private boolean is_admin = false;
 
 	public int getUser_id() {
 		return user_id;

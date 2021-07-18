@@ -7,7 +7,7 @@ import { AppServiceService } from '../app-service.service';
   styleUrls: ['./signin.component.css']
 })
 export class SigninComponent implements OnInit {
-  public userName: string = "";
+  public emailId: string = "";
   public userPassword: string = "";
   public isSent: boolean = false;
   constructor(
@@ -20,13 +20,13 @@ export class SigninComponent implements OnInit {
   }
 
   signinFn() {
-    if (!this.userName) {
+    if (!this.emailId) {
       alert("Please enter Email id");
     } else if (!this.userPassword) {
       alert("Please enter Password");
     } else {
       let data = {
-        emailId: this.userName,
+        emailId: this.emailId,
         userPassword: this.userPassword
       };
       this.appService.signinFunction(data).subscribe(
