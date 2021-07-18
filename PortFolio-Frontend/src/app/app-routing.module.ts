@@ -8,8 +8,8 @@ import { UserPortfolioComponent } from './user-portfolio/user-portfolio.componen
 const routes: Routes = [
   { path: "login", component: SigninComponent, pathMatch: "full" },
   { path: "signup", component: SignupComponent, pathMatch: "full"},
-  { path: "portfolio", component: UserPortfolioComponent, pathMatch: "full"},
-  { path: "admin-page", component: AdminPageComponent, pathMatch: "full"},
+  { path: "portfolio/:userId/:userName", component: UserPortfolioComponent, pathMatch: "full"},
+  { path: "admin-page/:userId", component: AdminPageComponent, pathMatch: "full"},
   { path: "", redirectTo: "login", pathMatch: "full" }
 ];
 

@@ -19,7 +19,7 @@ export class AppServiceService {
     return this.http.get(`${this.baseURL}/getUserByName/${userData.emailId}/${userData.userPassword}`);
   }
 
-  public signupFunction(userName:any , emailId: any, phoneNumber:any, userPassword:any): Observable<any> {
+  public signupFunction(userName: any, emailId: any, phoneNumber: any, userPassword: any): Observable<any> {
     const params = new URLSearchParams()
     let options = {
       headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
@@ -30,5 +30,19 @@ export class AppServiceService {
     params.set("password", userPassword);
     return this.http.post(`${this.baseURL}/addUser`, params, options);
   }
+  public getAllUsers(): Observable<any> {
+    return this.http.get(`${this.baseURL}/getAllUser`);
+  }
+
+  public deleteUserById(userId: any): Observable<any> {
+    console.log(userId);
+    return this.http.delete(`${this.baseURL}/deleteUser/${userId}`);
+  }
+
+  public updateUserContact(userId: any, contact: any): Observable<any> {
+    console.log(userId);
+    return this.http.put(`${this.baseURL}/updateUser/${userId}/${contact}`,userId,contact);
+  }
+
 
 }

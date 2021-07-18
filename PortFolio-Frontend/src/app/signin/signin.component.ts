@@ -10,6 +10,8 @@ export class SigninComponent implements OnInit {
   public emailId: string = "";
   public userPassword: string = "";
   public isSent: boolean = false;
+
+
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -32,9 +34,9 @@ export class SigninComponent implements OnInit {
       this.appService.signinFunction(data).subscribe(
         apiResponse => {
           if (apiResponse.is_admin == false)
-            this.router.navigate(["/portfolio"]);
+            this.router.navigate(["/portfolio",apiResponse.user_id, apiResponse.user_name]);
           else
-            this.router.navigate(["/admin-page"]);
+            this.router.navigate(["/admin-page",apiResponse.user_name]);
         },
         err => {
           console.log(err);
