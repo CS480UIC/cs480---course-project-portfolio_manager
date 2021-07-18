@@ -46,7 +46,6 @@ public class UserController {
 		return ResponseEntity.ok().body(userList);
 	}
 
-	// TODO : add password to the query.
 	@GetMapping("/api/getUserByName/{email}/{password}")
 	public ResponseEntity<User> getUserByName(@PathVariable("email") String emailId,
 			@PathVariable("password") String password) {
