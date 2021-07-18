@@ -1,5 +1,5 @@
 <div>
-    <h1>Welcome {{adminName.userId}}</h1>
+  <h1>Welcome {{adminName.userId}}</h1>
   <div>
     <form>
       <div class="form-group form-inline">
@@ -13,18 +13,64 @@
     </form>
   </div>
   <hr>
+
+  <!--                      Users Table                                       -->
+
   <div>
     <h1>User List</h1>
-    <table style="width:100%">
+    <table style="width:100%;">
       <tr>
-        <th *ngFor = "let values of headings">
-            {{values}}
+        <th *ngFor="let values of headings">
+          {{values}}
         </th>
       </tr>
-      <tr *ngFor = "let row of userData">
-          <td *ngFor = "let values of headers">
-            {{row[values]}}
-          </td>
+      <tr *ngFor="let row of userData">
+        <td *ngFor="let values of headers">
+          {{row[values]}}
+        </td>
+      </tr>
+    </table>
+  </div>
+
+
+  <hr>
+  <hr>
+
+  <!--                      Stock Catergory Table                                       -->
+
+
+  <div>
+    <h1>Stock Category Table</h1>
+    <table style="width:100%">
+      <tr>
+        <th *ngFor="let values of headings">
+          {{values}}
+        </th>
+      </tr>
+      <tr *ngFor="let row of userData">
+        <td *ngFor="let values of headers">
+          {{row[values]}}
+        </td>
+      </tr>
+    </table>
+  </div>
+  <hr>
+  <hr>
+
+  <!--                      Exchange Table                                       -->
+
+  <div>
+    <h1>Exchange Table</h1>
+    <table style="width:100%">
+      <tr>
+        <th *ngFor="let values of headings">
+          {{values}}
+        </th>
+      </tr>
+      <tr *ngFor="let row of userData">
+        <td *ngFor="let values of headers">
+          {{row[values]}}
+        </td>
       </tr>
     </table>
   </div>
