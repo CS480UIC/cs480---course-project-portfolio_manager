@@ -51,7 +51,7 @@ public class UserController {
 		return ResponseEntity.ok().body("User Created with ID : " + id);
 	}
 	
-	@DeleteMapping("/api/updateUser/{userId}")
+	@DeleteMapping("/api/deleteUser/{userId}")
 	public ResponseEntity<?> deleteUser(@PathVariable("userId") int userId) {
 		userService.deleteUser(userId);
 		return ResponseEntity.ok().body("User Created with ID : " + userId);

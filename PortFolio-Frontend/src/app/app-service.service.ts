@@ -19,4 +19,16 @@ export class AppServiceService {
     return this.http.get(`${this.baseURL}/getUserByName/${userData.emailId}/${userData.userPassword}`);
   }
 
+  public signupFunction(userName:any , emailId: any, phoneNumber:any, userPassword:any): Observable<any> {
+    const params = new URLSearchParams()
+    let options = {
+      headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
+    };
+    params.set("user_name", userName)
+    params.set("email_id", emailId)
+    params.set("contact", phoneNumber)
+    params.set("password", userPassword);
+    return this.http.post(`${this.baseURL}/addUser`, params, options);
+  }
+
 }
