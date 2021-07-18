@@ -3,10 +3,10 @@ create database portfolio_manager;
 use portfolio_manager;
 
 create table users(
-	user_id INT AUTO_INCREMENT, 
-        user_name varchar(20), 
-        password varchar(20), 
-        email_id varchar(20) UNIQUE, 
+	user_id INT AUTO_INCREMENT NOT NULL, 
+        user_name varchar(20) NOT NULL, 
+        password varchar(20) NOT NULL, 
+        email_id varchar(20) UNIQUE NOT NULL, 
 	contact varchar(15),
         is_admin boolean,
         PRIMARY KEY (user_id)
