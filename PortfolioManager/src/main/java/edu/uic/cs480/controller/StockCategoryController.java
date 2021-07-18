@@ -42,14 +42,14 @@ public class StockCategoryController {
 	}
 
 	@PutMapping("/api/updateStockCategory/{categoryId}/{marketCap}")
-	public ResponseEntity<?> updateUser(@PathVariable("categoryId") int categoryId,
+	public ResponseEntity<?> updateStockCategory(@PathVariable("categoryId") int categoryId,
 			@PathVariable("marketCap") String marketCap) {
 		int id = stockCategoryService.updateExistingCategory(categoryId, marketCap);
 		return ResponseEntity.ok().body("Category market cap updated with ID : " + id);
 	}
 
 	@DeleteMapping("/api/deleteStockCategory/{categoryId}")
-	public ResponseEntity<?> deleteUser(@PathVariable("categoryId") int categoryId) {
+	public ResponseEntity<?> deleteStockCategory(@PathVariable("categoryId") int categoryId) {
 		stockCategoryService.deleteCategory(categoryId);
 		return ResponseEntity.ok().body("Stock category deleted with ID : " + categoryId);
 	}
