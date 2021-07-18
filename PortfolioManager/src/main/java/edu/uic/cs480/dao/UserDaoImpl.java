@@ -17,14 +17,14 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public int createUser(User user) {
-		// TODO Auto-generated method stub
-		return 0;
+		sessionFactory.getCurrentSession().save(user);
+		return user.getUser_id();
 	}
 
 	@Override
-	public User getUSer(String userName) {
-		// TODO Auto-generated method stub
-		return null;
+	public User getUserByName(String userName) {
+		List<User> user = sessionFactory.getCurrentSession().createQuery("from users where user_name='"+userName+"'").list();
+		return user.get(0);
 	}
 
 	@Override
@@ -33,17 +33,4 @@ public class UserDaoImpl implements UserDao {
 		List<User> listOfUsers = (ArrayList<User>) sessionFactory.getCurrentSession().createQuery("from users").list();
 		return listOfUsers;
 	}
-
-	@Override
-	public void updateUser(String userName, User user) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void deleteUser(String userName) {
-		// TODO Auto-generated method stub
-
-	}
-
 }

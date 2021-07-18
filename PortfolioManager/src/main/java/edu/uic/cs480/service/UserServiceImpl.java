@@ -17,15 +17,15 @@ public class UserServiceImpl implements UserService {
 	private UserDao userDao;
 
 	@Override
+	@Transactional
 	public int createUser(User user) {
-		// TODO Auto-generated method stub
-		return 0;
+		return userDao.createUser(user);
 	}
 
 	@Override
-	public User getUSer(String userName) {
-		// TODO Auto-generated method stub
-		return null;
+	@Transactional
+	public User getUserByName(String userName) {
+		return userDao.getUserByName(userName);
 	}
 
 	@Override
@@ -33,17 +33,4 @@ public class UserServiceImpl implements UserService {
 	public List<User> getAllUsers() {
 		return userDao.getAllUsers();
 	}
-
-	@Override
-	public void updateUser(String userName, User user) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void deleteUser(String userName) {
-		// TODO Auto-generated method stub
-
-	}
-
 }
