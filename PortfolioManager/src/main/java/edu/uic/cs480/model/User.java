@@ -1,18 +1,36 @@
 package edu.uic.cs480.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 /**
  * POJO class implemented to map the user table in Database.
  * 
  * @author Arvind Gupta
  *
  */
+@Entity(name = "users")
 public class User {
 
-	private String userName;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int user_id;
+
+	public int getUserID() {
+		return user_id;
+	}
+
+	public void setUserID(int user_id) {
+		this.user_id = user_id;
+	}
+
+	private String user_name;
 	private String password;
-	private String emailID;
-	private String contactNumber;
-	private boolean isAdmin;
+	private String email_id;
+	private String contact;
+	private boolean is_admin;
 
 	/**
 	 * getter.
@@ -20,7 +38,7 @@ public class User {
 	 * @return
 	 */
 	public String getUserName() {
-		return userName;
+		return user_name;
 	}
 
 	public String getPassword() {
@@ -32,27 +50,27 @@ public class User {
 	}
 
 	public String getEmailID() {
-		return emailID;
+		return email_id;
 	}
 
 	public void setEmailID(String emailID) {
-		this.emailID = emailID;
+		this.email_id = emailID;
 	}
 
 	public String getContactNumber() {
-		return contactNumber;
+		return contact;
 	}
 
 	public void setContactNumber(String contactNumber) {
-		this.contactNumber = contactNumber;
+		this.contact = contactNumber;
 	}
 
 	public boolean isAdmin() {
-		return isAdmin;
+		return is_admin;
 	}
 
 	public void setAdmin(boolean isAdmin) {
-		this.isAdmin = isAdmin;
+		this.is_admin = isAdmin;
 	}
 
 	/**
@@ -61,7 +79,7 @@ public class User {
 	 * @param userName
 	 */
 	public void setUserName(String userName) {
-		this.userName = userName;
+		this.user_name = userName;
 	}
 
 }
