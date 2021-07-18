@@ -31,14 +31,15 @@ public class UserDaoImpl implements UserDao {
 	@Override
 	public User getUserByEmail(String emailID, String password) {
 		List<User> user = sessionFactory.getCurrentSession()
-				.createQuery("from users where user_name='" + emailID + "' and password='" + password + "'").list();
+				.createQuery("from users where email_id='" + emailID + "' and password='" + password + "'").list();
 		return user.get(0);
 	}
 
 	@Override
 	public List<User> getAllUsers() {
 
-		List<User> listOfUsers = (ArrayList<User>) sessionFactory.getCurrentSession().createQuery("from users").list();
+		List<User> listOfUsers = (ArrayList<User>) sessionFactory.getCurrentSession()
+				.createQuery("from users where is_admin=" + false).list();
 		return listOfUsers;
 	}
 

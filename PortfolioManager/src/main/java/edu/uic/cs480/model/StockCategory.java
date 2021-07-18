@@ -37,5 +37,4 @@ public class StockCategory {
 	public void setMarket_cap(String market_cap) {
 		this.market_cap = market_cap;
 	}
-
 }

@@ -1,1 +1,15 @@
-<p>user-portfolio works!</p>
+<div>
+  <h1>Hello {{userData.userName}}</h1>
+  <div>
+    <form>
+      <div class="form-group">
+        <label for="contact">Change Contact Number</label>
+        <input type="text" class="form-control" [(ngModel)]="contact" name="contact" id="contact"
+          placeholder="Enter new Contact Number" />
+      </div>
+      <button class="btn btn-primary" (click)="updateContact()">
+        Submit
+      </button>
+    </form>
+  </div>
+</div>

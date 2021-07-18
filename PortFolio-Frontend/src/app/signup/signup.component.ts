@@ -41,7 +41,13 @@ export class SignupComponent implements OnInit {
           console.log(apiResponse);
         },
         err => {
-          alert("some error occured");
+          console.log(err);
+            if(err.status === 200){
+              alert("User Created Successfully")
+              this._router.navigate(["/"]);
+            }else{
+              alert("Some error occured");
+            }    
         }
       );
     }
