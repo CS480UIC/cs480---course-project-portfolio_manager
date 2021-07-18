@@ -9,6 +9,12 @@ import org.springframework.stereotype.Repository;
 
 import edu.uic.cs480.model.User;
 
+/**
+ * implemented to perform all the DB operations on the User table.
+ * 
+ * @author Arvind Gupta
+ *
+ */
 @Repository
 public class UserDaoImpl implements UserDao {
 
@@ -32,5 +38,17 @@ public class UserDaoImpl implements UserDao {
 
 		List<User> listOfUsers = (ArrayList<User>) sessionFactory.getCurrentSession().createQuery("from users").list();
 		return listOfUsers;
+	}
+
+	@Override
+	public int updateUser(int userId, String contact) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int deleteUser(int userId) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 }
