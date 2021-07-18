@@ -29,8 +29,9 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	@Override
-	public User getUserByName(String userName) {
-		List<User> user = sessionFactory.getCurrentSession().createQuery("from users where user_name='"+userName+"'").list();
+	public User getUserByEmail(String emailID, String password) {
+		List<User> user = sessionFactory.getCurrentSession()
+				.createQuery("from users where user_name='" + emailID + "' and password='" + password + "'").list();
 		return user.get(0);
 	}
 
@@ -47,7 +48,7 @@ public class UserDaoImpl implements UserDao {
 		User user = session.byId(User.class).load(userId);
 		user.setContact(contact);
 		session.flush();
-		
+
 		return user.getUser_id();
 	}
 
