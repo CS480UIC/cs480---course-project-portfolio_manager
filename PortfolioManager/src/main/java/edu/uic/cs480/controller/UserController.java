@@ -31,10 +31,10 @@ public class UserController {
 	}
 
 	// TODO : add password to the query.
-	@GetMapping("/api/getUserByName/{userName}/{password}")
-	public ResponseEntity<User> getUserByName(@PathVariable("userName") String userName,
+	@GetMapping("/api/getUserByName/{email}/{password}")
+	public ResponseEntity<User> getUserByName(@PathVariable("email") String emailId,
 			@PathVariable("password") String password) {
-		User user = userService.getUserByName(userName);
+		User user = userService.getUserByEmail(emailId, password);
 		return ResponseEntity.ok().body(user);
 	}
 

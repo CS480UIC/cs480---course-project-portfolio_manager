@@ -21,12 +21,13 @@ public interface UserDao {
 	int createUser(User user);
 
 	/**
-	 * implement to get the user by user name.
+	 * implement to get the user by user emailID.
 	 * 
-	 * @param userName
+	 * @param emailID
+	 * @param password
 	 * @return
 	 */
-	User getUserByName(String userName);
+	User getUserByEmail(String emailID, String password);
 
 	/**
 	 * implement to get all the users from the user table.

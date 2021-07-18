@@ -21,11 +21,35 @@ public interface UserService {
 	 */
 	int createUser(User user);
 
-	User getUserByName(String userName);
+	/**
+	 * implement to get user by email ID.
+	 * 
+	 * @param emailId
+	 * @param password
+	 * @return
+	 */
+	User getUserByEmail(String emailId, String password);
 
+	/**
+	 * implement to get all the users from the user table.
+	 * 
+	 * @return
+	 */
 	List<User> getAllUsers();
 
+	/**
+	 * implement to update the contact information for the given user ID.
+	 * 
+	 * @param userId
+	 * @param contact
+	 * @return
+	 */
 	int updateUser(int userId, String contact);
 
+	/**
+	 * implement to delete the given user.
+	 * 
+	 * @param userId
+	 */
 	void deleteUser(int userId);
 }
