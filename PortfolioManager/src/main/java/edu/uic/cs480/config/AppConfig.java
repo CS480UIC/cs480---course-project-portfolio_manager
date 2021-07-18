@@ -56,7 +56,7 @@ public class AppConfig {
 		return factoryBean;
 	}
 	
-	
+	@Bean
 	public HibernateTransactionManager getTransactionManager() {
 		
 		HibernateTransactionManager hibernateTransactionManager = new HibernateTransactionManager();

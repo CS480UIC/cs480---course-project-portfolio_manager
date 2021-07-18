@@ -1,5 +1,6 @@
 package edu.uic.cs480.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.SessionFactory;
@@ -29,7 +30,7 @@ public class UserDaoImpl implements UserDao {
 	@Override
 	public List<User> getAllUsers() {
 
-		List<User> listOfUsers = sessionFactory.getCurrentSession().createQuery("from users").list();
+		List<User> listOfUsers = (ArrayList<User>) sessionFactory.getCurrentSession().createQuery("from users").list();
 		return listOfUsers;
 	}
 

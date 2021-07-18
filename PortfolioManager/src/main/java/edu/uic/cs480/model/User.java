@@ -17,28 +17,26 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int user_id;
-
-	public int getUserID() {
-		return user_id;
-	}
-
-	public void setUserID(int user_id) {
-		this.user_id = user_id;
-	}
-
 	private String user_name;
 	private String password;
 	private String email_id;
 	private String contact;
 	private boolean is_admin;
 
-	/**
-	 * getter.
-	 * 
-	 * @return
-	 */
-	public String getUserName() {
+	public int getUser_id() {
+		return user_id;
+	}
+
+	public void setUser_id(int user_id) {
+		this.user_id = user_id;
+	}
+
+	public String getUser_name() {
 		return user_name;
+	}
+
+	public void setUser_name(String user_name) {
+		this.user_name = user_name;
 	}
 
 	public String getPassword() {
@@ -49,37 +47,27 @@ public class User {
 		this.password = password;
 	}
 
-	public String getEmailID() {
+	public String getEmail_id() {
 		return email_id;
 	}
 
-	public void setEmailID(String emailID) {
-		this.email_id = emailID;
+	public void setEmail_id(String email_id) {
+		this.email_id = email_id;
 	}
 
-	public String getContactNumber() {
+	public String getContact() {
 		return contact;
 	}
 
-	public void setContactNumber(String contactNumber) {
-		this.contact = contactNumber;
+	public void setContact(String contact) {
+		this.contact = contact;
 	}
 
-	public boolean isAdmin() {
+	public boolean isIs_admin() {
 		return is_admin;
 	}
 
-	public void setAdmin(boolean isAdmin) {
-		this.is_admin = isAdmin;
+	public void setIs_admin(boolean is_admin) {
+		this.is_admin = is_admin;
 	}
-
-	/**
-	 * setter.
-	 * 
-	 * @param userName
-	 */
-	public void setUserName(String userName) {
-		this.user_name = userName;
-	}
-
 }

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import edu.uic.cs480.model.User;
 import edu.uic.cs480.service.UserService;
 
+
 @RestController
 public class UserController {
 
