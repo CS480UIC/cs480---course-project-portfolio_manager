@@ -30,8 +30,8 @@ public class ExchangeServiceImpl implements ExchangeService {
 
 	@Override
 	@Transactional
-	public int updateExistingExchange(int exchangeId, String exchangeName, String numberOfStocks) {
-		return exchangeDao.updateExistingExchange(exchangeId, exchangeName, numberOfStocks);
+	public int updateExistingExchange(int exchangeId, String numberOfStocks) {
+		return exchangeDao.updateExistingExchange(exchangeId, numberOfStocks);
 	}
 
 	@Override

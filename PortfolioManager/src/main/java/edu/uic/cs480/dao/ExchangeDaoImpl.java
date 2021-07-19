@@ -30,10 +30,9 @@ public class ExchangeDaoImpl implements ExchangeDao {
 	}
 
 	@Override
-	public int updateExistingExchange(int exchangeId, String exchangeName, String numberOfStocks) {
+	public int updateExistingExchange(int exchangeId, String numberOfStocks) {
 		Session session = sessionFactory.getCurrentSession();
 		Exchange exchangeInfo = session.byId(Exchange.class).load(exchangeId);
-		exchangeInfo.setExchange_name(exchangeName);
 		exchangeInfo.setNumber_of_stocks(numberOfStocks);
 		session.flush();
 
