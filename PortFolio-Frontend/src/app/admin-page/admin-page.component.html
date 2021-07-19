@@ -1,77 +1,129 @@
 <div>
   <h1>Welcome {{adminName.userId}}</h1>
-  <div>
-    <form>
-      <div class="form-group form-inline">
-        <label for="userId">Delete User</label>
-        <input type="text" class="form-control" [(ngModel)]="userId" name="userId" id="userId"
-          placeholder="Enter user Id to delete user" />
-      </div>
-      <button class="btn btn-primary" (click)="deleteUser()">
-        Submit
-      </button>
-    </form>
-  </div>
   <hr>
 
   <!--                      Users Table                                       -->
 
-  <div>
-    <h1>User List</h1>
-    <table style="width:100%;">
-      <tr>
-        <th *ngFor="let values of headings">
-          {{values}}
-        </th>
-      </tr>
-      <tr *ngFor="let row of userData">
-        <td *ngFor="let values of headers">
-          {{row[values]}}
-        </td>
-      </tr>
-    </table>
+  <div class="flex-container">
+    <div class="flex-child table">
+      <h1>User List</h1>
+      <table style="width:100%;">
+        <tr>
+          <th *ngFor="let values of userHeadings">
+            {{values}}
+          </th>
+        </tr>
+        <tr *ngFor="let row of userData">
+          <td *ngFor="let values of userHeaders">
+            {{row[values]}}
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="flex-child button">
+      <form>
+        <div class="form-group form-inline">
+          <label for="userId">Delete User</label>
+          <input type="text" class="form-control" [(ngModel)]="userId" name="userId" id="userId"
+            placeholder="User Id" />
+        </div>
+        <button class="btn btn-primary" (click)="deleteUser()">
+          Submit
+        </button>
+      </form>
+    </div>
   </div>
-
-
   <hr>
   <hr>
-
   <!--                      Stock Catergory Table                                       -->
 
 
-  <div>
-    <h1>Stock Category Table</h1>
-    <table style="width:100%">
-      <tr>
-        <th *ngFor="let values of headings">
-          {{values}}
-        </th>
-      </tr>
-      <tr *ngFor="let row of userData">
-        <td *ngFor="let values of headers">
-          {{row[values]}}
-        </td>
-      </tr>
-    </table>
+  <div class="flex-container">
+    <div class="flex-child table">
+      <h1>Stock Catergory Table</h1>
+      <table style="width:100%;">
+        <tr>
+          <th *ngFor="let values of stockCategoryHeadings">
+            {{values}}
+          </th>
+        </tr>
+        <tr *ngFor="let row of stockCategoryData">
+          <td *ngFor="let values of stockCategoryHeaders">
+            {{row[values]}}
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="flex-child button1">
+      <form>
+        <div class="form-group form-inline">
+          <label for="stockId">Delete Stock Catergory</label>
+          <input type="text" class="form-control" [(ngModel)]="stockId" name="stockId" id="stockId"
+            placeholder="Stock Id" />
+        </div>
+        <button class="btn btn-primary" (click)="deleteStockCategory()">
+          Submit
+        </button>
+      </form>
+    </div>
+    <div flex-child button2>
+      <form>
+        <div class="form-group form-inline">
+          <label for="userId">Update Stock Catergory</label>
+          <input type="text" class="form-control" [(ngModel)]="userId" name="userId" id="userId"
+            placeholder="Stock Id" />
+        </div>
+        <button class="btn btn-primary" (click)="updateStockCategory()">
+          Submit
+        </button>
+      </form>
+    </div>
   </div>
   <hr>
   <hr>
 
-  <!--                      Exchange Table                                       -->
+   <!--                      Exchange Table                                       -->
 
-  <div>
-    <h1>Exchange Table</h1>
-    <table style="width:100%">
-      <tr>
-        <th *ngFor="let values of headings">
-          {{values}}
-        </th>
-      </tr>
-      <tr *ngFor="let row of userData">
-        <td *ngFor="let values of headers">
-          {{row[values]}}
-        </td>
-      </tr>
-    </table>
+   <div class="flex-container">
+    <div class="flex-child table">
+      <h1>Exchange Table</h1>
+      <table style="width:100%;">
+        <tr>
+          <th *ngFor="let values of exchangeHeadings">
+            {{values}}
+          </th>
+        </tr>
+        <tr *ngFor="let row of exchangeData">
+          <td *ngFor="let values of exchangeHeaders">
+            {{row[values]}}
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="flex-child button1">
+      <form>
+        <div class="form-group form-inline">
+          <label for="exchangeId">Delete Exchange</label>
+          <input type="text" class="form-control" [(ngModel)]="exchangeId" name="exchangeId" id="exchangeId"
+            placeholder="Exchange Id" />
+        </div>
+        <button class="btn btn-primary" (click)="deleteExchange()">
+          Submit
+        </button>
+      </form>
+    </div>
+    <div flex-child button2>
+      <form>
+        <div class="form-group form-inline">
+          <label for="userId">Update Exchange</label>
+          <input type="text" class="form-control" [(ngModel)]="userId" name="userId" id="userId"
+            placeholder="Exchange Id" />
+        </div>
+        <button class="btn btn-primary" (click)="updateExchange()">
+          Submit
+        </button>
+      </form>
+    </div>
   </div>
+
 </div>

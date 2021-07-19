@@ -15,6 +15,8 @@ export class AppServiceService {
   baseURL = "http://localhost:8080/PortfolioManager/api";
   constructor(private http: HttpClient) { }
 
+  // user Api's
+
   public signinFunction(userData: any): Observable<any> {
     return this.http.get(`${this.baseURL}/getUserByName/${userData.emailId}/${userData.userPassword}`);
   }
@@ -41,8 +43,28 @@ export class AppServiceService {
 
   public updateUserContact(userId: any, contact: any): Observable<any> {
     console.log(userId);
-    return this.http.put(`${this.baseURL}/updateUser/${userId}/${contact}`,userId,contact);
+    return this.http.put(`${this.baseURL}/updateUser/${userId}/${contact}`, userId, contact);
   }
 
+  /*********************************************************************************************** */
+  // Stock category Api's
+  public getAllStockCategories() {
+    return this.http.get(`${this.baseURL}/getAllStockCategories`);
+  }
 
+  public deleteStockCategoryById(categoryId: any): Observable<any> {
+    console.log(categoryId);
+    return this.http.delete(`${this.baseURL}/deleteStockCategory/${categoryId}`);
+  }
+
+  /*********************************************************************************************** */
+  // Exchanges Api's
+  public getAllExchanges() {
+    return this.http.get(`${this.baseURL}/getAllExchanges`);
+  }
+  
+  public deleteExchangeById(exchangeId: any): Observable<any> {
+    console.log(exchangeId);
+    return this.http.delete(`${this.baseURL}/deleteExchange/${exchangeId}`);
+  }
 }
