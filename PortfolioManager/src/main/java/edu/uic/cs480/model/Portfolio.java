@@ -4,7 +4,7 @@ import java.sql.Date;
 
 import javax.persistence.Entity;
 
-@Entity(name = "portofolio")
+//@Entity(name = "portofolio")
 public class Portfolio {
 
 	int user_id;

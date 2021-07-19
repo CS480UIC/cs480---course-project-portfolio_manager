@@ -10,10 +10,19 @@ import { AppServiceService } from '../app-service.service';
 export class AdminPageComponent implements OnInit {
   public adminName: any;
   public userId: string = "";
+  public stockId: string = "";
+  public exchangeId: string = "";
+
   public userData: any;
+  public stockCategoryData: any;
+  public exchangeData: any;
   public adminData: any;
-  headers = ["user_id", "user_name", "email_id", "contact"];
-  headings = ["User Id", "User Name", "Email Id", "Contact"];
+  userHeaders = ["user_id", "user_name", "email_id", "contact"];
+  userHeadings = ["User Id", "User Name", "Email Id", "Contact"];
+  stockCategoryHeaders = ["category_id", "industry", "market_cap"];
+  stockCategoryHeadings = ["Category Id", "Industry", "Market Cap"];
+  exchangeHeaders = ["exchange_id", "exchange_name", "number_of_stocks"];
+  exchangeHeadings = ["Exchange Id", "Exchange Name", "Number of Stocks"];
 
 
   constructor(
@@ -37,7 +46,29 @@ export class AdminPageComponent implements OnInit {
         alert("some error occured");
       }
     );
+    //get all stock categories
+    this.appService.getAllStockCategories().subscribe(
+      apiResponse => {
+        console.log(apiResponse);
+        this.stockCategoryData = apiResponse;
+      },
+      err => {
+        alert("some error occured");
+      }
+    );
+
+    //get all echanges
+    this.appService.getAllExchanges().subscribe(
+      apiResponse => {
+        console.log(apiResponse);
+        this.exchangeData = apiResponse;
+      },
+      err => {
+        alert("some error occured");
+      }
+    );
   };
+
   deleteUser(){
     this.appService.deleteUserById(this.userId).subscribe(
       apiResponse => {
@@ -57,5 +88,48 @@ export class AdminPageComponent implements OnInit {
       }
     );
   }
+
+  deleteStockCategory(){
+    this.appService.deleteStockCategoryById(this.stockId).subscribe(
+      apiResponse => {
+        console.log(apiResponse);
+        alert("StockCategory Deleted")
+      },
+      err => {
+        if(err.status === 200){
+          alert("Stock Category Deleted Successfully")
+          window.location.reload();
+        }else if(err.status === 500){
+          alert("Stock Category Not found");
+          window.location.reload();
+        }else{
+          alert("Some error occured");
+        }
+      }
+    );
+  }
+
+  deleteExchange(){
+    this.appService.deleteExchangeById(this.exchangeId).subscribe(
+      apiResponse => {
+        console.log(apiResponse);
+        alert("Exchange Deleted")
+      },
+      err => {
+        if(err.status === 200){
+          alert("Exchange Deleted Successfully")
+          window.location.reload();
+        }else if(err.status === 500){
+          alert("Exchange Not found");
+          window.location.reload();
+        }else{
+          alert("Some error occured");
+        }
+      }
+    );
+  }
+
+  public updateExchange(){};
+  public updateStockCategory(){};
 
 }
