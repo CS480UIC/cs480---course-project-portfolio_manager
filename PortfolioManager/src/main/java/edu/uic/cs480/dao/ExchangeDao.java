@@ -10,7 +10,7 @@ public interface ExchangeDao {
 	
 	List<Exchange> getAllExchanges();
 	
-	int updateExistingExchange(int exchangeId, String exchangeName, String numberOfStocks);
+	int updateExistingExchange(int exchangeId, String numberOfStocks);
 	
 	void deleteExchange(int exchangeId);
 }

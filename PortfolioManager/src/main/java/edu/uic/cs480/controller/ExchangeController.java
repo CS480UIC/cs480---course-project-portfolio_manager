@@ -35,10 +35,10 @@ public class ExchangeController {
 		return ResponseEntity.ok().body(exchangeList);
 	}
 
-	@PutMapping("/api/updateExchangeInfo/{exchangeId}/{exchangeName}/{numberOfStocks}")
+	@PutMapping("/api/updateExchangeInfo/{exchangeId}/{numberOfStocks}")
 	public ResponseEntity<?> updateExchangeInfo(@PathVariable("exchangeId") int exchangeId,
-			@PathVariable("exchangeName") String exchangeName, @PathVariable("numberOfStocks") int numberOfStocks) {
-		int id = exchangeService.updateExistingExchange(exchangeId, exchangeName, exchangeName);
+		@PathVariable("numberOfStocks") String numberOfStocks) {
+		int id = exchangeService.updateExistingExchange(exchangeId, numberOfStocks);
 		return ResponseEntity.ok().body("Exchange update with Exchange ID : " + id);
 	}
 
