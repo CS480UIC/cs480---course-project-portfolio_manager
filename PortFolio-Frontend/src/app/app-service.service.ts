@@ -62,6 +62,16 @@ export class AppServiceService {
     return this.http.put(`${this.baseURL}/updateStockCategory/${categoryId}/${marketCap}`, categoryId, marketCap);
   }
 
+  public createNewStockCategory(industry:any, marketCap: any): Observable<any> {
+    const params = new URLSearchParams()
+    let options = {
+      headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
+    };
+    params.set("industry", industry)
+    params.set("market_cap", marketCap)
+    return this.http.post(`${this.baseURL}/addCategory`, params, options);
+  }
+
   /*********************************************************************************************** */
   // Exchanges Api's
   public getAllExchanges() {
@@ -76,5 +86,16 @@ export class AppServiceService {
   public updateExchangeStock(exchangeId: any, numOfStocks: any): Observable<any> {
     console.log(exchangeId, numOfStocks);
     return this.http.put(`${this.baseURL}/updateExchangeInfo/${exchangeId}/${numOfStocks}`, exchangeId, numOfStocks);
+  }
+
+  public createNewExchange(exchangeName:any, numOfStocks: any): Observable<any> {
+    const params = new URLSearchParams()
+    console.log(exchangeName, numOfStocks);
+    let options = {
+      headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
+    };
+    params.set("exchange_name", exchangeName)
+    params.set("number_of_stock", numOfStocks)
+    return this.http.post(`${this.baseURL}/addNewExchange`, params, options);
   }
 }

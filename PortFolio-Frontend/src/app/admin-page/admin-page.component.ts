@@ -24,6 +24,9 @@ export class AdminPageComponent implements OnInit {
   exchangeHeaders = ["exchange_id", "exchange_name", "number_of_stocks"];
   exchangeHeadings = ["Exchange Id", "Exchange Name", "Number of Stocks"];
 
+  public exchangeName: any;
+  public industry: any;
+
   public numOfStocks: any;
   public marketCap: any;
 
@@ -140,17 +143,17 @@ export class AdminPageComponent implements OnInit {
         alert("Market Cap updated")
       },
       err => {
-        if(err.status === 200){
+        if (err.status === 200) {
           alert("Market Cap updated Successfully")
           window.location.reload();
-        }else{
+        } else {
           alert("Some error occured");
         }
       }
     );
-   };
+  };
 
-  public updateExchange() { 
+  public updateExchange() {
     console.log(this.marketCap);
     this.appService.updateExchangeStock(this.exchangeId, this.numOfStocks).subscribe(
       apiResponse => {
@@ -158,15 +161,49 @@ export class AdminPageComponent implements OnInit {
         alert("Number of Stocks updated")
       },
       err => {
-        if(err.status === 200){
+        if (err.status === 200) {
           alert("Number of Stocks updated Successfully")
           window.location.reload();
-        }else{
+        } else {
           alert("Some error occured");
         }
       }
     );
   };
-  
+
+  public createStockCategory() {
+    this.appService.createNewStockCategory(this.industry, this.marketCap).subscribe(
+      apiResponse => {
+        console.log(apiResponse);
+      },
+      err => {
+        console.log(err);
+        if (err.status === 200) {
+          alert("Category Created Successfully")
+          window.location.reload();
+        } else {
+          alert("Some error occured");
+        }
+      }
+    );
+  }
+
+  createExchange() {
+    console.log(this.exchangeName, this.numOfStocks)
+    this.appService.createNewExchange(this.exchangeName, this.numOfStocks).subscribe(
+      apiResponse => {
+        console.log(apiResponse);
+      },
+      err => {
+        console.log(err);
+        if (err.status === 200) {
+          alert("Exchange Created Successfully")
+          window.location.reload();
+        } else {
+          alert("Some error occured");
+        }
+      }
+    );
+  }
 
 }
