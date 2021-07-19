@@ -12,7 +12,7 @@ public class Exchange {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	int exchange_id;
 	String exchange_name;
-	String number_of_stock;
+	int number_of_stock;
 
 	/**
 	 * @return the exchange_id
@@ -45,14 +45,14 @@ public class Exchange {
 	/**
 	 * @return the number_of_stocks
 	 */
-	public String getNumber_of_stocks() {
+	public int getNumber_of_stocks() {
 		return number_of_stock;
 	}
 
 	/**
 	 * @param number_of_stocks the number_of_stocks to set
 	 */
-	public void setNumber_of_stocks(String number_of_stock) {
+	public void setNumber_of_stocks(int number_of_stock) {
 		this.number_of_stock = number_of_stock;
 	}
 

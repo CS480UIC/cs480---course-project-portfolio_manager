@@ -37,7 +37,7 @@ public class ExchangeController {
 
 	@PutMapping("/api/updateExchangeInfo/{exchangeId}/{numberOfStocks}")
 	public ResponseEntity<?> updateExchangeInfo(@PathVariable("exchangeId") int exchangeId,
-		@PathVariable("numberOfStocks") String numberOfStocks) {
+		@PathVariable("numberOfStocks") int numberOfStocks) {
 		int id = exchangeService.updateExistingExchange(exchangeId, numberOfStocks);
 		return ResponseEntity.ok().body("Exchange update with Exchange ID : " + id);
 	}

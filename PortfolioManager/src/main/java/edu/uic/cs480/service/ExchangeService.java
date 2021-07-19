@@ -10,7 +10,7 @@ public interface ExchangeService {
 
 	List<Exchange> getAllExchanges();
 
-	int updateExistingExchange(int exchangeId, String numberOfStocks);
+	int updateExistingExchange(int exchangeId, int numberOfStocks);
 
 	void deleteExchange(int exchangeId);
 }
