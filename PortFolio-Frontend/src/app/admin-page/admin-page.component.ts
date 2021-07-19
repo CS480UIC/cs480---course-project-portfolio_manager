@@ -150,7 +150,23 @@ export class AdminPageComponent implements OnInit {
     );
    };
 
-  public updateExchange() { };
+  public updateExchange() { 
+    console.log(this.marketCap);
+    this.appService.updateExchangeStock(this.exchangeId, this.numOfStocks).subscribe(
+      apiResponse => {
+        console.log(apiResponse);
+        alert("Number of Stocks updated")
+      },
+      err => {
+        if(err.status === 200){
+          alert("Number of Stocks updated Successfully")
+          window.location.reload();
+        }else{
+          alert("Some error occured");
+        }
+      }
+    );
+  };
   
 
 }

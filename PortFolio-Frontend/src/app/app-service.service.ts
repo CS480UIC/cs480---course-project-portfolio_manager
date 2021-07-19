@@ -72,4 +72,9 @@ export class AppServiceService {
     console.log(exchangeId);
     return this.http.delete(`${this.baseURL}/deleteExchange/${exchangeId}`);
   }
+  
+  public updateExchangeStock(exchangeId: any, numOfStocks: any): Observable<any> {
+    console.log(exchangeId, numOfStocks);
+    return this.http.put(`${this.baseURL}/updateExchangeInfo/${exchangeId}/${numOfStocks}`, exchangeId, numOfStocks);
+  }
 }
