@@ -57,12 +57,17 @@ export class AppServiceService {
     return this.http.delete(`${this.baseURL}/deleteStockCategory/${categoryId}`);
   }
 
+  public updateStockCategory(categoryId: any, marketCap: any): Observable<any> {
+    console.log(categoryId, marketCap);
+    return this.http.put(`${this.baseURL}/updateStockCategory/${categoryId}/${marketCap}`, categoryId, marketCap);
+  }
+
   /*********************************************************************************************** */
   // Exchanges Api's
   public getAllExchanges() {
     return this.http.get(`${this.baseURL}/getAllExchanges`);
   }
-  
+
   public deleteExchangeById(exchangeId: any): Observable<any> {
     console.log(exchangeId);
     return this.http.delete(`${this.baseURL}/deleteExchange/${exchangeId}`);

@@ -54,24 +54,26 @@
         </tr>
       </table>
     </div>
-    <div class="flex-child button1">
+    <div class="flex-child button">
       <form>
         <div class="form-group form-inline">
           <label for="stockId">Delete Stock Catergory</label>
-          <input type="text" class="form-control" [(ngModel)]="stockId" name="stockId" id="stockId"
+          <input type="text" class="form-control" [(ngModel)]="categoryId" name="categoryId" id="categoryId"
             placeholder="Stock Id" />
         </div>
         <button class="btn btn-primary" (click)="deleteStockCategory()">
           Submit
         </button>
       </form>
-    </div>
-    <div flex-child button2>
+
+
       <form>
         <div class="form-group form-inline">
-          <label for="userId">Update Stock Catergory</label>
-          <input type="text" class="form-control" [(ngModel)]="userId" name="userId" id="userId"
+          <label for="UpdateMarketCap">Update Stock Catergory</label>
+          <input type="text" class="form-control" [(ngModel)]="categoryId" name="categoryId" id="categoryId"
             placeholder="Stock Id" />
+          <input type="text" class="form-control" [(ngModel)]="marketCap" name="marketCap" id="marketCap"
+            placeholder="Market Cap" />
         </div>
         <button class="btn btn-primary" (click)="updateStockCategory()">
           Submit
@@ -82,9 +84,9 @@
   <hr>
   <hr>
 
-   <!--                      Exchange Table                                       -->
+  <!--                      Exchange Table                                       -->
 
-   <div class="flex-container">
+  <div class="flex-container">
     <div class="flex-child table">
       <h1>Exchange Table</h1>
       <table style="width:100%;">
@@ -100,7 +102,7 @@
         </tr>
       </table>
     </div>
-    <div class="flex-child button1">
+    <div class="flex-child button">
       <form>
         <div class="form-group form-inline">
           <label for="exchangeId">Delete Exchange</label>
@@ -111,13 +113,15 @@
           Submit
         </button>
       </form>
-    </div>
-    <div flex-child button2>
+
+
       <form>
         <div class="form-group form-inline">
-          <label for="userId">Update Exchange</label>
-          <input type="text" class="form-control" [(ngModel)]="userId" name="userId" id="userId"
+          <label for="numberOfStocks">Update Exchange</label>
+          <input type="text" class="form-control" [(ngModel)]="exchangeId" name="exchangeId" id="exchangeId"
             placeholder="Exchange Id" />
+          <input type="text" class="form-control" [(ngModel)]="numOfStocks" name="numOfStocks" id="numOfStocks"
+            placeholder="Number Of Stocks" />
         </div>
         <button class="btn btn-primary" (click)="updateExchange()">
           Submit

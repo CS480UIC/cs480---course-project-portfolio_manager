@@ -10,7 +10,7 @@ import { AppServiceService } from '../app-service.service';
 export class AdminPageComponent implements OnInit {
   public adminName: any;
   public userId: string = "";
-  public stockId: string = "";
+  public categoryId: string = "";
   public exchangeId: string = "";
 
   public userData: any;
@@ -24,6 +24,9 @@ export class AdminPageComponent implements OnInit {
   exchangeHeaders = ["exchange_id", "exchange_name", "number_of_stocks"];
   exchangeHeadings = ["Exchange Id", "Exchange Name", "Number of Stocks"];
 
+  public numOfStocks: any;
+  public marketCap: any;
+
 
   constructor(
     private _router: Router,
@@ -31,7 +34,7 @@ export class AdminPageComponent implements OnInit {
     private appService: AppServiceService
   ) { }
 
-  ngOnInit() { 
+  ngOnInit() {
     this.route.params.subscribe(params => {
       this.adminName = params;
     });
@@ -69,67 +72,85 @@ export class AdminPageComponent implements OnInit {
     );
   };
 
-  deleteUser(){
+  deleteUser() {
     this.appService.deleteUserById(this.userId).subscribe(
       apiResponse => {
         console.log(apiResponse);
         alert("User Deleted")
       },
       err => {
-        if(err.status === 200){
+        if (err.status === 200) {
           alert("User Deleted Successfully")
           window.location.reload();
-        }else if(err.status === 500){
+        } else if (err.status === 500) {
           alert("User Not found");
           window.location.reload();
-        }else{
+        } else {
           alert("Some error occured");
         }
       }
     );
   }
 
-  deleteStockCategory(){
-    this.appService.deleteStockCategoryById(this.stockId).subscribe(
+  deleteStockCategory() {
+    this.appService.deleteStockCategoryById(this.categoryId).subscribe(
       apiResponse => {
         console.log(apiResponse);
         alert("StockCategory Deleted")
       },
       err => {
-        if(err.status === 200){
+        if (err.status === 200) {
           alert("Stock Category Deleted Successfully")
           window.location.reload();
-        }else if(err.status === 500){
+        } else if (err.status === 500) {
           alert("Stock Category Not found");
           window.location.reload();
-        }else{
+        } else {
           alert("Some error occured");
         }
       }
     );
   }
 
-  deleteExchange(){
+  deleteExchange() {
     this.appService.deleteExchangeById(this.exchangeId).subscribe(
       apiResponse => {
         console.log(apiResponse);
         alert("Exchange Deleted")
       },
       err => {
-        if(err.status === 200){
+        if (err.status === 200) {
           alert("Exchange Deleted Successfully")
           window.location.reload();
-        }else if(err.status === 500){
+        } else if (err.status === 500) {
           alert("Exchange Not found");
           window.location.reload();
-        }else{
+        } else {
           alert("Some error occured");
         }
       }
     );
   }
 
-  public updateExchange(){};
-  public updateStockCategory(){};
+  public updateStockCategory() {
+    console.log(this.marketCap);
+    this.appService.updateStockCategory(this.categoryId, this.marketCap).subscribe(
+      apiResponse => {
+        console.log(apiResponse);
+        alert("Market Cap updated")
+      },
+      err => {
+        if(err.status === 200){
+          alert("Market Cap updated Successfully")
+          window.location.reload();
+        }else{
+          alert("Some error occured");
+        }
+      }
+    );
+   };
+
+  public updateExchange() { };
+  
 
 }
