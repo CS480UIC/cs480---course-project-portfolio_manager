@@ -1,5 +1,6 @@
 package edu.uic.cs480.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,20 +16,21 @@ import javax.persistence.Id;
 public class User {
 
 	@Id
+	@Column(name = "user_id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int user_id;
+	private int userId;
 	private String user_name;
 	private String password;
 	private String email_id;
 	private String contact;
 	private boolean is_admin = false;
 
-	public int getUser_id() {
-		return user_id;
+	public int getUserId() {
+		return userId;
 	}
 
-	public void setUser_id(int user_id) {
-		this.user_id = user_id;
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 
 	public String getUser_name() {

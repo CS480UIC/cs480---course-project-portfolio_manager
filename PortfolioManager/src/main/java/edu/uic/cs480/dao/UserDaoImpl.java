@@ -25,7 +25,7 @@ public class UserDaoImpl implements UserDao {
 	@Override
 	public int createUser(User user) {
 		sessionFactory.getCurrentSession().save(user);
-		return user.getUser_id();
+		return user.getUserId();
 	}
 
 	@Override
@@ -50,7 +50,7 @@ public class UserDaoImpl implements UserDao {
 		user.setContact(contact);
 		session.flush();
 
-		return user.getUser_id();
+		return user.getUserId();
 	}
 
 	@Override
