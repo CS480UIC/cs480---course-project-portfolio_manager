@@ -15,6 +15,8 @@ public class StockInfo {
 	@Column(name = "stock_id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int stockID;
+	
+	@Column(name = "stock_name")
 	private String stockName;
 	
 	@ManyToOne

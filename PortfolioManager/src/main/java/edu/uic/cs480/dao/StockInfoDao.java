@@ -18,5 +18,29 @@ public interface StockInfoDao {
 	 * @return
 	 */
 	List<StockInfo> getAllStocksInfo();
+	
+	/**
+	 * implement to add a new stock to the database.
+	 * 
+	 * @param stockInfo
+	 * @return
+	 */
+	int addNewStock(StockInfo stockInfo);
+	
+	/**
+	 * implement to update the existing stock info row.
+	 * 
+	 * @param stockId
+	 * @param stockName
+	 * @return
+	 */
+	int updateStockInfo(int stockId, String stockName);
+	
+	/**
+	 * implement to delete a stock.
+	 * 
+	 * @param stockId
+	 */
+	void deleteStockInfo(int stockId);
 
 }

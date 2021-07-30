@@ -29,4 +29,21 @@ public class StockInfoServiceImpl implements StockInfoService {
 		return stockInfoDao.getAllStocksInfo();
 	}
 
+	@Override
+	@Transactional
+	public int addNewStock(StockInfo stockInfo) {
+		return stockInfoDao.addNewStock(stockInfo);
+	}
+
+	@Override
+	@Transactional
+	public int updateStockInfo(int stockId, String stockName) {
+		return stockInfoDao.updateStockInfo(stockId, stockName);
+	}
+
+	@Override
+	@Transactional
+	public void deleteStockInfo(int stockId) {
+		stockInfoDao.deleteStockInfo(stockId);
+	}
 }

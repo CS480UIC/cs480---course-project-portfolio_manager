@@ -29,12 +29,18 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 
+	/**
+	 * Create a new user in the database.
+	 * 
+	 * @param user
+	 * @return
+	 */
 	@PostMapping("/api/addUser")
 	public ResponseEntity<?> createUser(@ModelAttribute("user") User user) {
 		int id = userService.createUser(user);
 		return ResponseEntity.ok().body("User Created with ID : " + id);
 	}
-	
+
 	/**
 	 * Get All Users from the Users table.
 	 * 
@@ -46,20 +52,39 @@ public class UserController {
 		return ResponseEntity.ok().body(userList);
 	}
 
+	/**
+	 * Get a particular user based on email and password for login.
+	 * 
+	 * @param emailId
+	 * @param password
+	 * @return
+	 */
 	@GetMapping("/api/getUserByName/{email}/{password}")
 	public ResponseEntity<User> getUserByName(@PathVariable("email") String emailId,
 			@PathVariable("password") String password) {
 		User user = userService.getUserByEmail(emailId, password);
 		return ResponseEntity.ok().body(user);
 	}
-	
+
+	/**
+	 * update an existing user information.
+	 * 
+	 * @param userId
+	 * @param contact
+	 * @return
+	 */
 	@PutMapping("/api/updateUser/{userId}/{contact}")
-	public ResponseEntity<?> updateUser(@PathVariable("userId") int userId,
-			@PathVariable("contact") String contact) {
+	public ResponseEntity<?> updateUser(@PathVariable("userId") int userId, @PathVariable("contact") String contact) {
 		int id = userService.updateUser(userId, contact);
 		return ResponseEntity.ok().body("User updated with ID : " + id);
 	}
-	
+
+	/**
+	 * delete a user.
+	 * 
+	 * @param userId
+	 * @return
+	 */
 	@DeleteMapping("/api/deleteUser/{userId}")
 	public ResponseEntity<?> deleteUser(@PathVariable("userId") int userId) {
 		userService.deleteUser(userId);
