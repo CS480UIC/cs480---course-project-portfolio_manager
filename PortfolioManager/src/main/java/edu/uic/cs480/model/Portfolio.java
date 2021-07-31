@@ -8,12 +8,8 @@ import javax.persistence.IdClass;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-<<<<<<< HEAD
 @Entity(name = "portfolio")
 @IdClass(PortfolioID.class)
-=======
-//@Entity(name = "portfolio")
->>>>>>> 7e8a5bfe18d8d75ec58bd2133294a5211d125e50
 public class Portfolio {
 
 	@Id
