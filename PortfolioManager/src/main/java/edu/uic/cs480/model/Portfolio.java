@@ -13,6 +13,8 @@ import edu.uic.cs480.utils.PortfolioID;
 @Entity(name = "portfolio")
 @IdClass(PortfolioID.class)
 public class Portfolio {
+	
+	public Portfolio(){}
 
 	@Id
 //	@ManyToOne
@@ -114,4 +116,6 @@ public class Portfolio {
 	public void setLatest_transaction_date(Date latest_transaction_date) {
 		this.latest_transaction_date = latest_transaction_date;
 	}
+
+	
 }

@@ -2,10 +2,13 @@ package edu.uic.cs480.utils;
 
 import java.io.Serializable;
 
+@SuppressWarnings("serial")
 public class PortfolioID implements Serializable {
 
 	int user_id;
 	int stock_id;
+	
+	public PortfolioID(){}
 
 	public PortfolioID(int user_id, int stock_id) {
 		super();
