@@ -8,6 +8,8 @@ import javax.persistence.IdClass;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import edu.uic.cs480.utils.PortfolioID;
+
 @Entity(name = "portfolio")
 @IdClass(PortfolioID.class)
 public class Portfolio {
