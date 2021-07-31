@@ -15,17 +15,17 @@ import edu.uic.cs480.utils.PortfolioID;
 public class Portfolio {
 
 	@Id
-	@ManyToOne
-	@JoinColumn(name = "user_id")
+//	@ManyToOne
+//	@JoinColumn(name = "user_id")
 	int user_id;
 	
 	@Id
-	@ManyToOne
-	@JoinColumn(name = "stock_id")
+//	@ManyToOne
+//	@JoinColumn(name = "stock_id")
 	int stock_id;
 	
-	@ManyToOne
-	@JoinColumn(name = "stock_name")
+//	@ManyToOne
+//	@JoinColumn(name = "stock_name")
 	String stock_name;
 	float avg_price;
 	int quantity;
