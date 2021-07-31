@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import edu.uic.cs480.model.Portfolio;
+import edu.uic.cs480.model.StockInfo;
+import edu.uic.cs480.utils.PortfolioID;
 import edu.uic.cs480.utils.UserPortfolio;
 
 /**
@@ -74,7 +76,6 @@ public class PortfolioDaoImpl implements PortfolioDao {
 						+ " ON s.exchange_id = e.exchange_id");
 		List<UserPortfolio> results = query.list();
 		
-		
 		return results;
 	}
 
@@ -86,13 +87,23 @@ public class PortfolioDaoImpl implements PortfolioDao {
 	}
 
 	@Override
-	public int updatePortfolioForUser(int userId, String stockName, float price, int totalQty, Date dateOfTransaction) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int updatePortfolioForUser(int userId, int stockId, String stockName, float price, int totalQty, Date dateOfTransaction) {
+		Session session = sessionFactory.getCurrentSession();
+		PortfolioID portfolioId = new PortfolioID(userId, stockId);
+		Portfolio portfolio = session.byId(Portfolio.class).load(portfolioId);
+		portfolio.setStock_name(stockName);
+		portfolio.setQuantity(portfolio.getQuantity() + totalQty);
+		portfolio.setAvg_price((portfolio.getAvg_price() + price) / portfolio.getQuantity());
+		portfolio.setLatest_transaction_date(dateOfTransaction);
+		
+		return portfolio.getUser_id();
 	}
 
 	@Override
-	public int deletePortfolioForUser(int userId) {
-		return 0;
+	public void deletePortfolioForUser(int userId, int stockId) {
+		Session session = sessionFactory.getCurrentSession();
+		PortfolioID portfolioId = new PortfolioID(userId, stockId);
+		Portfolio portfolio = session.byId(Portfolio.class).load(portfolioId);
+		session.delete(portfolio);
 	}
 }

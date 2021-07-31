@@ -44,13 +44,13 @@ public class PortfolioServiceImpl implements PortfolioService {
 
 	@Override
 	@Transactional
-	public int updatePortfolioForUser(int userId, String stockName, float price, int totalQty, Date dateOfTransaction) {
-		return portfolioDao.updatePortfolioForUser(userId, stockName, price, totalQty, dateOfTransaction);
+	public int updatePortfolioForUser(int userId, int stockId, String stockName, float price, int totalQty, Date dateOfTransaction) {
+		return portfolioDao.updatePortfolioForUser(userId, stockId, stockName, price, totalQty, dateOfTransaction);
 	}
 
 	@Override
 	@Transactional
-	public int deletePortfolioForUser(int userId) {
-		return portfolioDao.deletePortfolioForUser(userId);
+	public void deletePortfolioForUser(int userId, int stockId) {
+		portfolioDao.deletePortfolioForUser(userId, stockId);
 	}
 }
