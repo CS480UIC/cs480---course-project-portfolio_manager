@@ -30,6 +30,12 @@ public class ExchangeDaoImpl implements ExchangeDao {
 	}
 
 	@Override
+	public List<Exchange> getAllExchangesSortedByName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
 	public int updateExistingExchange(int exchangeId, int numberOfStocks) {
 		Session session = sessionFactory.getCurrentSession();
 		Exchange exchangeInfo = session.byId(Exchange.class).load(exchangeId);
@@ -45,4 +51,5 @@ public class ExchangeDaoImpl implements ExchangeDao {
 		Exchange exchangeInfo = session.byId(Exchange.class).load(exchangeId);
 		session.delete(exchangeInfo);
 	}
+
 }

@@ -19,7 +19,6 @@ public class Portfolio {
 	
 	@Id
 	int stock_id;
-	String stock_name;
 	float avg_price;
 	int quantity;
 	Date latest_transaction_date;
@@ -50,20 +49,6 @@ public class Portfolio {
 	 */
 	public void setStock_id(int stock_id) {
 		this.stock_id = stock_id;
-	}
-
-	/**
-	 * @return the stock_name
-	 */
-	public String getStock_name() {
-		return stock_name;
-	}
-
-	/**
-	 * @param stock_name the stock_name to set
-	 */
-	public void setStock_name(String stock_name) {
-		this.stock_name = stock_name;
 	}
 
 	/**

@@ -10,6 +10,8 @@ public interface ExchangeDao {
 	
 	List<Exchange> getAllExchanges();
 	
+	List<Exchange> getAllExchangesSortedByName();
+	
 	int updateExistingExchange(int exchangeId, int numberOfStocks);
 	
 	void deleteExchange(int exchangeId);
