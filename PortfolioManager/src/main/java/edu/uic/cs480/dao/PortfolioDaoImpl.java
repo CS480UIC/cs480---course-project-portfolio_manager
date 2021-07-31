@@ -63,7 +63,7 @@ public class PortfolioDaoImpl implements PortfolioDao {
 						+ " JOIN edu.uic.cs480.model.StockInfo s " + " ON p.stock_id = s.stock_id "
 						+ " JOIN edu.uic.cs480.model.StockCategory sc" + " ON s.category_id = sc.category_id"
 						+ " JOIN edu.uic.cs480.model.Exchange e"
-						+ " ON s.exchange_id = e.exchange_id where u.user_id = " + userId);
+						+ " ON s.exchange_id = e.exchange_id where u.userId = " + userId);
 		List<UserPortfolio> results = query.list();
 
 		return results;
