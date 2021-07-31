@@ -7,11 +7,12 @@ import java.io.Serializable;
  * @author Arvind Gupta
  *
  */
+@SuppressWarnings("serial")
 public class PortfolioID implements Serializable {
 
 	int user_id;
 	int stock_id;
-
+	
 	public PortfolioID() {
 		super();
 	}
