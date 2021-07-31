@@ -6,7 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-@Entity(name = "portofolio")
+//@Entity(name = "portfolio")
 public class Portfolio {
 
 	@ManyToOne
