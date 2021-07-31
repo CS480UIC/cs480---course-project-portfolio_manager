@@ -30,7 +30,7 @@ public class UserPortfolio {
 	}
 
 	public UserPortfolio(int userId, String userName, String stockName, float avgPrice, int quantity,
-			String industryName, String exchangeName, String latestTransactionDate) {
+			String industryName, String exchangeName, Date latestTransactionDate) {
 		super();
 		this.userId = userId;
 		this.userName = userName;
@@ -39,7 +39,7 @@ public class UserPortfolio {
 		this.quantity = quantity;
 		this.industryName = industryName;
 		this.exchangeName = exchangeName;
-		this.latestTransactionDate = latestTransactionDate;
+		this.latestTransactionDate = new SimpleDateFormat("yyyy-MM-dd").format(latestTransactionDate);
 	}
 
 	/**
