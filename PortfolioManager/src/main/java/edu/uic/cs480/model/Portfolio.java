@@ -5,8 +5,6 @@ import java.sql.Date;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 
 import edu.uic.cs480.utils.PortfolioID;
 

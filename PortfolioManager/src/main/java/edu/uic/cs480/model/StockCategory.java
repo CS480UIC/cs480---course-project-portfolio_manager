@@ -14,6 +14,10 @@ public class StockCategory {
 	String industry;
 	String market_cap;
 
+	public StockCategory() {
+		super();
+	}
+
 	public int getCategory_id() {
 		return category_id;
 	}

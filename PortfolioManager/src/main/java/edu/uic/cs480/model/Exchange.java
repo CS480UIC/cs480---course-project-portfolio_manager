@@ -14,6 +14,10 @@ public class Exchange {
 	String exchange_name;
 	int number_of_stock;
 
+	public Exchange() {
+		super();
+	}
+
 	/**
 	 * @return the exchange_id
 	 */
