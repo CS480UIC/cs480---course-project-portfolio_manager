@@ -1,5 +1,12 @@
 package edu.uic.cs480.utils;
 
+/**
+ * POJO class to contain all the details required to show for Stock info page in
+ * admin.
+ * 
+ * @author Arvind Gupta
+ *
+ */
 public class Stock {
 
 	private int stockId;
@@ -10,33 +17,23 @@ public class Stock {
 	private int numberOfStocks;
 
 	/**
-	 * @return the marketCap
+	 * default constructor.
+	 * 
 	 */
-	public String getMarketCap() {
-		return marketCap;
+	public Stock() {
+		super();
 	}
 
 	/**
-	 * @param marketCap the marketCap to set
+	 * constructor.
+	 * 
+	 * @param stockId
+	 * @param stockName
+	 * @param industry
+	 * @param marketCap
+	 * @param exchangeName
+	 * @param numberOfStocks
 	 */
-	public void setMarketCap(String marketCap) {
-		this.marketCap = marketCap;
-	}
-
-	/**
-	 * @return the numberOfStocks
-	 */
-	public int getNumberOfStocks() {
-		return numberOfStocks;
-	}
-
-	/**
-	 * @param numberOfStocks the numberOfStocks to set
-	 */
-	public void setNumberOfStocks(int numberOfStocks) {
-		this.numberOfStocks = numberOfStocks;
-	}
-
 	public Stock(int stockId, String stockName, String industry, String marketCap, String exchangeName,
 			int numberOfStocks) {
 		super();
@@ -91,6 +88,20 @@ public class Stock {
 	}
 
 	/**
+	 * @return the marketCap
+	 */
+	public String getMarketCap() {
+		return marketCap;
+	}
+
+	/**
+	 * @param marketCap the marketCap to set
+	 */
+	public void setMarketCap(String marketCap) {
+		this.marketCap = marketCap;
+	}
+
+	/**
 	 * @return the exchangeName
 	 */
 	public String getExchangeName() {
@@ -104,8 +115,17 @@ public class Stock {
 		this.exchangeName = exchangeName;
 	}
 
-	public Stock() {
-		super();
+	/**
+	 * @return the numberOfStocks
+	 */
+	public int getNumberOfStocks() {
+		return numberOfStocks;
 	}
 
+	/**
+	 * @param numberOfStocks the numberOfStocks to set
+	 */
+	public void setNumberOfStocks(int numberOfStocks) {
+		this.numberOfStocks = numberOfStocks;
+	}
 }

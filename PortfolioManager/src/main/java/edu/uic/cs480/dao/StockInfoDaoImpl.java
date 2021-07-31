@@ -1,6 +1,5 @@
 package edu.uic.cs480.dao;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Session;
@@ -9,8 +8,6 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import edu.uic.cs480.model.Exchange;
-import edu.uic.cs480.model.StockCategory;
 import edu.uic.cs480.model.StockInfo;
 import edu.uic.cs480.utils.Stock;
 

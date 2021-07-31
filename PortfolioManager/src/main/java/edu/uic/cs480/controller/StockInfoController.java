@@ -18,7 +18,7 @@ import edu.uic.cs480.service.StockInfoService;
 import edu.uic.cs480.utils.Stock;
 
 /**
- * Controller class for StockInfo service.
+ * implemented to provide APIs for stock_info table.
  * 
  * @author Arvind Gupta
  *
@@ -63,10 +63,10 @@ public class StockInfoController {
 	@PutMapping("/api/updateStockInfo/{stockId}/{stockName}")
 	public ResponseEntity<?> updateStockInfo(@PathVariable("stockId") int stockId,
 			@PathVariable("stockName") String stockName) {
-			int id = stockInfoService.updateStockInfo(stockId, stockName);
-			return ResponseEntity.ok().body("Stock updated with Id : " + id);
+		int id = stockInfoService.updateStockInfo(stockId, stockName);
+		return ResponseEntity.ok().body("Stock updated with Id : " + id);
 	}
-	
+
 	/**
 	 * Deletes the stock with given Id.
 	 * 

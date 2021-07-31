@@ -14,6 +14,10 @@ public class Exchange {
 	String exchange_name;
 	int number_of_stock;
 
+	/**
+	 * constructor.
+	 * 
+	 */
 	public Exchange() {
 		super();
 	}

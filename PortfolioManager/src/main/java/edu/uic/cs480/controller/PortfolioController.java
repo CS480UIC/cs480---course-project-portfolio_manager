@@ -19,6 +19,12 @@ import edu.uic.cs480.model.Portfolio;
 import edu.uic.cs480.service.PortfolioService;
 import edu.uic.cs480.utils.UserPortfolio;
 
+/**
+ * implemented to provide APIs for portfolio table.
+ * 
+ * @author Arvind Gupta
+ *
+ */
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
 public class PortfolioController {
@@ -26,24 +32,51 @@ public class PortfolioController {
 	@Autowired
 	private PortfolioService portfolioService;
 
+	/**
+	 * implemented to add new portfolio row for given user.
+	 * 
+	 * @param portfolio
+	 * @return
+	 */
 	@PostMapping("/api/addPortfolioRow")
 	public ResponseEntity<?> addPortfolioForUser(@ModelAttribute("portfolio") Portfolio portfolio) {
 		int userId = portfolioService.addNewPortfolio(portfolio);
 		return ResponseEntity.ok().body("Row added for user : " + userId);
 	}
 
+	/**
+	 * implemented to get list of all portfolios for all the users.
+	 * 
+	 * @return
+	 */
 	@GetMapping("/api/getAllPortfoliosForAllUsers")
 	public ResponseEntity<List<UserPortfolio>> getAllPortfoliosListForAllUsers() {
 		List<UserPortfolio> portfolioList = portfolioService.getAllPortfolioForAllUser();
 		return ResponseEntity.ok().body(portfolioList);
 	}
 
+	/**
+	 * implemented to get list of portfolio for given user.
+	 * 
+	 * @param userId
+	 * @return
+	 */
 	@GetMapping("/api/getPortfolioForUserId/{userId}")
 	public ResponseEntity<List<UserPortfolio>> getPortfolioForUserId(@PathVariable("userId") int userId) {
 		List<UserPortfolio> portfolioListForUser = portfolioService.getPortfolioForUser(userId);
 		return ResponseEntity.ok().body(portfolioListForUser);
 	}
 
+	/**
+	 * implemented to update the portfolio for given user.
+	 * 
+	 * @param userId
+	 * @param stockId
+	 * @param price
+	 * @param totalQty
+	 * @param dateOfTransaction
+	 * @return
+	 */
 	@PutMapping("/api/updatePortfolioForUser/{userId}/{stockId}/{price}/{totalQty}/{dateOfTransaction}")
 	public ResponseEntity<?> updatePortfolioForUser(@PathVariable("userId") int userId,
 			@PathVariable("stockId") int stockId, @PathVariable("price") float price,
@@ -53,6 +86,13 @@ public class PortfolioController {
 		return ResponseEntity.ok().body("Portfolio updated for user Id : " + id);
 	}
 
+	/**
+	 * implemented to delete a portfolio.
+	 * 
+	 * @param userId
+	 * @param stockId
+	 * @return
+	 */
 	@DeleteMapping("/api/deletePortfolio/{userId}")
 	public ResponseEntity<?> deletePortfolioForUser(@PathVariable("userId") int userId,
 			@PathVariable("stockId") int stockId) {

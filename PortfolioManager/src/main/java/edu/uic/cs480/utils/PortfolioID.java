@@ -3,6 +3,7 @@ package edu.uic.cs480.utils;
 import java.io.Serializable;
 
 /**
+ * Primary key class for Portfolio table.
  * 
  * @author Arvind Gupta
  *
@@ -12,21 +13,25 @@ public class PortfolioID implements Serializable {
 
 	int user_id;
 	int stock_id;
-	
+
+	/**
+	 * default constructor.
+	 * 
+	 */
 	public PortfolioID() {
 		super();
 	}
 
+	/**
+	 * constructor.
+	 * 
+	 * @param user_id
+	 * @param stock_id
+	 */
 	public PortfolioID(int user_id, int stock_id) {
 		super();
 		this.user_id = user_id;
 		this.stock_id = stock_id;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		// TODO Auto-generated method stub
-		return super.equals(obj);
 	}
 
 	/**
@@ -58,8 +63,12 @@ public class PortfolioID implements Serializable {
 	}
 
 	@Override
+	public boolean equals(Object obj) {
+		return super.equals(obj);
+	}
+
+	@Override
 	public int hashCode() {
-		// TODO Auto-generated method stub
 		return super.hashCode();
 	}
 }

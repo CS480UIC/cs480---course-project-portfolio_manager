@@ -10,12 +10,18 @@ import org.springframework.stereotype.Service;
 import edu.uic.cs480.dao.StockCategoryDao;
 import edu.uic.cs480.model.StockCategory;
 
+/**
+ * implementation of service for stock_category table.
+ * 
+ * @author Arvind Gupta
+ *
+ */
 @Service
 public class StockCategoryServiceImpl implements StockCategoryService {
 
 	@Autowired
 	StockCategoryDao stockCategoryDao;
-	
+
 	@Override
 	@Transactional
 	public int addNewCategory(StockCategory stockCategory) {
@@ -29,6 +35,11 @@ public class StockCategoryServiceImpl implements StockCategoryService {
 	}
 
 	@Override
+	public List<StockCategory> getAllStockCategoriesSortedByIndustry() {
+		return stockCategoryDao.getAllStockCategoriesSortedByIndustry();
+	}
+
+	@Override
 	@Transactional
 	public int updateExistingCategory(int categoryId, String marketCap) {
 		return stockCategoryDao.updateExistingCategory(categoryId, marketCap);
@@ -37,6 +48,7 @@ public class StockCategoryServiceImpl implements StockCategoryService {
 	@Override
 	@Transactional
 	public void deleteCategory(int categoryId) {
-		stockCategoryDao.deleteCategory(categoryId);		
-	}	
+		stockCategoryDao.deleteCategory(categoryId);
+	}
+
 }

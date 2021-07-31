@@ -10,6 +10,12 @@ import org.springframework.stereotype.Repository;
 
 import edu.uic.cs480.model.Exchange;
 
+/**
+ * implemented to interact with the exchanges table.
+ * 
+ * @author Arvind Gupta
+ *
+ */
 @Repository
 public class ExchangeDaoImpl implements ExchangeDao {
 
@@ -31,8 +37,9 @@ public class ExchangeDaoImpl implements ExchangeDao {
 
 	@Override
 	public List<Exchange> getAllExchangesSortedByName() {
-		// TODO Auto-generated method stub
-		return null;
+		List<Exchange> listOfAllExchanges = (ArrayList<Exchange>) sessionFactory.getCurrentSession()
+				.createQuery("from exchanges ORDER BY exchange_name").list();
+		return listOfAllExchanges;
 	}
 
 	@Override

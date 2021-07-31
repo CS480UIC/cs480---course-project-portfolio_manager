@@ -10,11 +10,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import edu.uic.cs480.model.Portfolio;
-import edu.uic.cs480.model.StockInfo;
 import edu.uic.cs480.utils.PortfolioID;
 import edu.uic.cs480.utils.UserPortfolio;
 
 /**
+ * implemented to interact with portfolio table.
  * 
  * @author Arvind Gupta
  *
@@ -37,21 +37,16 @@ public class PortfolioDaoImpl implements PortfolioDao {
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<UserPortfolio> getAllPortfolioForAllUser() {
-		
+
 		Session session = sessionFactory.getCurrentSession();
 
 		Query<UserPortfolio> query = session.createQuery(
-				"select new edu.uic.cs480.utils.UserPortfolio( u.userId, u.user_name, "
-						+ "s.stock_name, p.avg_price, "
-						+ "p.quantity, p.latest_transaction_date )"
-						+ " from edu.uic.cs480.model.Portfolio p" 
-						+ " JOIN edu.uic.cs480.model.User u"
-						+ " ON p.user_id = u.userId " 
-						+ " JOIN edu.uic.cs480.model.StockInfo s "
-						+ " ON p.stock_id = s.stock_id");
+				"select new edu.uic.cs480.utils.UserPortfolio( u.userId, u.user_name, " + "s.stock_name, p.avg_price, "
+						+ "p.quantity, p.latest_transaction_date )" + " from edu.uic.cs480.model.Portfolio p"
+						+ " JOIN edu.uic.cs480.model.User u" + " ON p.user_id = u.userId "
+						+ " JOIN edu.uic.cs480.model.StockInfo s " + " ON p.stock_id = s.stock_id");
 		List<UserPortfolio> results = query.list();
-		
-		
+
 		return results;
 	}
 
@@ -60,22 +55,17 @@ public class PortfolioDaoImpl implements PortfolioDao {
 	public List<UserPortfolio> getPortfolioForUser(int userId) {
 		Session session = sessionFactory.getCurrentSession();
 
-		Query<UserPortfolio> query = session.createQuery(
-				"select new edu.uic.cs480.utils.UserPortfolio( u.userId, u.user_name, "
-				        + "s.stock_id, s.stock_name, p.avg_price, "
-						+ "p.quantity, sc.industry, "
-						+ "e.exchange_name, p.latest_transaction_date )"
-						+ " from edu.uic.cs480.model.Portfolio p" 
-						+ " JOIN edu.uic.cs480.model.User u"
-						+ " ON p.user_id = u.userId " 
-						+ " JOIN edu.uic.cs480.model.StockInfo s "
-						+ " ON p.stock_id = s.stock_id "
-						+ " JOIN edu.uic.cs480.model.StockCategory sc"
-						+ " ON s.category_id = sc.category_id"
+		Query<UserPortfolio> query = session
+				.createQuery("select new edu.uic.cs480.utils.UserPortfolio( u.userId, u.user_name, "
+						+ "s.stock_id, s.stock_name, p.avg_price, " + "p.quantity, sc.industry, "
+						+ "e.exchange_name, p.latest_transaction_date )" + " from edu.uic.cs480.model.Portfolio p"
+						+ " JOIN edu.uic.cs480.model.User u" + " ON p.user_id = u.userId "
+						+ " JOIN edu.uic.cs480.model.StockInfo s " + " ON p.stock_id = s.stock_id "
+						+ " JOIN edu.uic.cs480.model.StockCategory sc" + " ON s.category_id = sc.category_id"
 						+ " JOIN edu.uic.cs480.model.Exchange e"
-						+ " ON s.exchange_id = e.exchange_id");
+						+ " ON s.exchange_id = e.exchange_id where u.user_id = " + userId);
 		List<UserPortfolio> results = query.list();
-		
+
 		return results;
 	}
 
@@ -94,7 +84,7 @@ public class PortfolioDaoImpl implements PortfolioDao {
 		portfolio.setQuantity(portfolio.getQuantity() + totalQty);
 		portfolio.setAvg_price((portfolio.getAvg_price() + price) / portfolio.getQuantity());
 		portfolio.setLatest_transaction_date(dateOfTransaction);
-		
+
 		return portfolio.getUser_id();
 	}
 

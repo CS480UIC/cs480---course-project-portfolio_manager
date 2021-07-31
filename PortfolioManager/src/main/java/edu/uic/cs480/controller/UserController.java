@@ -17,7 +17,7 @@ import edu.uic.cs480.model.User;
 import edu.uic.cs480.service.UserService;
 
 /**
- * Controller class for the User service.
+ * implemented to provide APIs for users table.
  * 
  * @author Arvind Gupta
  *
@@ -80,7 +80,7 @@ public class UserController {
 	}
 
 	/**
-	 * delete a user.
+	 * delete a user according to user ID.
 	 * 
 	 * @param userId
 	 * @return
