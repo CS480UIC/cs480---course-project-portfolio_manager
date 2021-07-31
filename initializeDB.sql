@@ -60,3 +60,5 @@ insert into users(user_name, password, email_id , contact , is_admin ) values
     ('admin', 'admin', 'admin@xyz.com', '777-775-4555', true)
 
 alter table portfolio ADD PRIMARY KEY (user_id, stock_id);
+
+alter table portfolio drop column stock_name;
