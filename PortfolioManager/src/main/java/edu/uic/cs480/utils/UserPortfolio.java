@@ -62,7 +62,7 @@ public class UserPortfolio {
 	 * @param exchangeName
 	 * @param latestTransactionDate
 	 */
-	public UserPortfolio(int userId, int stockId, String userName, String stockName, float avgPrice, int quantity,
+	public UserPortfolio(int userId, String userName, int stockId, String stockName, float avgPrice, int quantity,
 			String industryName, String exchangeName, Date latestTransactionDate) {
 		super();
 		this.userId = userId;
