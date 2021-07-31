@@ -13,44 +13,39 @@ public class StockInfo {
 	@Column(name = "stock_id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int stock_id;
-	
+
 	@Column(name = "stock_name")
 	private String stock_name;
-	
-//	@ManyToOne
-//	@JoinColumn(name = "category_id")
+
 	private int category_id;
-	
-//	@ManyToOne
-//	@JoinColumn(name = "exchange_id")
 	private int exchange_id;
 
 	/**
-	 * @return the stockID
+	 * @return the stock_id
 	 */
-	public int getStockID() {
+	public int getStock_id() {
 		return stock_id;
 	}
 
 	/**
-	 * @param stockID the stockID to set
+	 * @param stock_id the stock_id to set
 	 */
-	public void setStockID(int stockID) {
-		this.stock_id = stockID;
+	public void setStock_id(int stock_id) {
+		this.stock_id = stock_id;
 	}
 
 	/**
-	 * @return the stockName
+	 * @return the stock_name
 	 */
-	public String getStockName() {
+	public String getStock_name() {
 		return stock_name;
 	}
 
 	/**
-	 * @param stockName the stockName to set
+	 * @param stock_name the stock_name to set
 	 */
-	public void setStockName(String stockName) {
-		this.stock_name = stockName;
+	public void setStock_name(String stock_name) {
+		this.stock_name = stock_name;
 	}
 
 	/**

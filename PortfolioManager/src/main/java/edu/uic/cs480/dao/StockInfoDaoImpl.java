@@ -48,15 +48,15 @@ public class StockInfoDaoImpl implements StockInfoDao {
 	@Override
 	public int addNewStock(StockInfo stockInfo) {
 		sessionFactory.getCurrentSession().save(stockInfo);
-		return stockInfo.getStockID();
+		return stockInfo.getStock_id();
 	}
 
 	@Override
 	public int updateStockInfo(int stockId, String stockName) {
 		Session session = sessionFactory.getCurrentSession();
 		StockInfo stock = session.byId(StockInfo.class).load(stockId);
-		stock.setStockName(stockName);
-		return stock.getStockID();
+		stock.setStock_name(stockName);
+		return stock.getStock_id();
 	}
 
 	@Override
