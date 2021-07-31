@@ -3,11 +3,15 @@ package edu.uic.cs480.dao;
 import java.sql.Date;
 import java.util.List;
 
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import edu.uic.cs480.model.Portfolio;
+import edu.uic.cs480.utils.Stock;
+import edu.uic.cs480.utils.UserPortfolio;
 
 @Repository
 public class PortfolioDaoImpl implements PortfolioDao {
@@ -24,11 +28,25 @@ public class PortfolioDaoImpl implements PortfolioDao {
 		return portfolio.getUser_id();
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
-	public List<Portfolio> getAllPortfolioForAllUser() {
-		List<Portfolio> allPortfoliosListForAllUsers = sessionFactory.getCurrentSession().createQuery("from portfolio")
-				.list();
-		return allPortfoliosListForAllUsers;
+	public List<UserPortfolio> getAllPortfolioForAllUser() {
+		
+		Session session = sessionFactory.getCurrentSession();
+
+		Query<UserPortfolio> query = session.createQuery(
+				"select new edu.uic.cs480.utils.UserPortfolio( u.userId, u.user_name, "
+						+ "s.stock_name, p.avg_price, "
+						+ "p.quantity, p.latest_transaction_date )"
+						+ " from edu.uic.cs480.model.Portfolio p" 
+						+ " JOIN edu.uic.cs480.model.User u"
+						+ " ON p.user_id = u.userId " 
+						+ " JOIN edu.uic.cs480.model.StockInfo s "
+						+ " ON p.stock_id = s.stock_id");
+		List<UserPortfolio> results = query.list();
+		
+		
+		return results;
 	}
 
 	@Override

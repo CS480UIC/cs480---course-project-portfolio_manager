@@ -3,6 +3,7 @@ package edu.uic.cs480.service;
 import java.util.List;
 
 import edu.uic.cs480.model.StockInfo;
+import edu.uic.cs480.utils.Stock;
 
 /**
  * interface for stock info service which interacts with the DAO package to
@@ -18,7 +19,7 @@ public interface StockInfoService {
 	 * 
 	 * @return
 	 */
-	public List<StockInfo> getAllStocksInfo();
+	public List<Stock> getAllStocksInfo();
 
 	/**
 	 * implement to add a new stock to the database.

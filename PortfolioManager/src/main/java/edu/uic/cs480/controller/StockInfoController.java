@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import edu.uic.cs480.model.StockInfo;
 import edu.uic.cs480.service.StockInfoService;
+import edu.uic.cs480.utils.Stock;
 
 /**
  * Controller class for StockInfo service.
@@ -35,8 +36,8 @@ public class StockInfoController {
 	 * @return
 	 */
 	@GetMapping("/api/getAllStocks")
-	public ResponseEntity<List<StockInfo>> getAllStocksInfo() {
-		List<StockInfo> allStocksList = stockInfoService.getAllStocksInfo();
+	public ResponseEntity<List<Stock>> getAllStocksInfo() {
+		List<Stock> allStocksList = stockInfoService.getAllStocksInfo();
 		return ResponseEntity.ok().body(allStocksList);
 	}
 

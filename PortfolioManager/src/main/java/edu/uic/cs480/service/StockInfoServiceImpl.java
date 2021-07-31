@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import edu.uic.cs480.dao.StockInfoDao;
 import edu.uic.cs480.model.StockInfo;
+import edu.uic.cs480.utils.Stock;
 
 /**
  * implemented to interact with the DAO class.
@@ -24,7 +25,7 @@ public class StockInfoServiceImpl implements StockInfoService {
 	
 	@Override
 	@Transactional
-	public List<StockInfo> getAllStocksInfo() {
+	public List<Stock> getAllStocksInfo() {
 		
 		return stockInfoDao.getAllStocksInfo();
 	}

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import edu.uic.cs480.dao.PortfolioDao;
 import edu.uic.cs480.model.Portfolio;
+import edu.uic.cs480.utils.UserPortfolio;
 
 @Service
 public class PortfolioServiceImpl implements PortfolioService {
@@ -25,7 +26,7 @@ public class PortfolioServiceImpl implements PortfolioService {
 
 	@Override
 	@Transactional
-	public List<Portfolio> getAllPortfolioForAllUser() {
+	public List<UserPortfolio> getAllPortfolioForAllUser() {
 		return portfolioDao.getAllPortfolioForAllUser();
 	}
 

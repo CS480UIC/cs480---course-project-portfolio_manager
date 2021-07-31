@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import edu.uic.cs480.model.Portfolio;
 import edu.uic.cs480.service.PortfolioService;
+import edu.uic.cs480.utils.UserPortfolio;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
@@ -29,8 +30,8 @@ public class PortfolioController {
 	}
 
 	@GetMapping("/api/getAllPortfoliosForAllUsers")
-	public ResponseEntity<List<Portfolio>> getAllPortfoliosListForAllUsers() {
-		List<Portfolio> portfolioList = portfolioService.getAllPortfolioForAllUser();
+	public ResponseEntity<List<UserPortfolio>> getAllPortfoliosListForAllUsers() {
+		List<UserPortfolio> portfolioList = portfolioService.getAllPortfolioForAllUser();
 		return ResponseEntity.ok().body(portfolioList);
 	}
 
