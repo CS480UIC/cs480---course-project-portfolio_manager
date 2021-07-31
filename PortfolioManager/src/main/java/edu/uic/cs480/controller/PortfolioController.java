@@ -44,13 +44,12 @@ public class PortfolioController {
 		return ResponseEntity.ok().body(portfolioListForUser);
 	}
 
-	@PutMapping("/api/updatePortfolioForUser/{userId}/{stockId}/{stockName}/{price}/{totalQty}/{dateOfTransaction}")
+	@PutMapping("/api/updatePortfolioForUser/{userId}/{stockId}/{price}/{totalQty}/{dateOfTransaction}")
 	public ResponseEntity<?> updatePortfolioForUser(@PathVariable("userId") int userId,
-			@PathVariable("stockId") int stockId, @PathVariable("stockName") String stockName,
-			@PathVariable("price") float price, @PathVariable("totalQty") int totalQty,
-			@PathVariable("dateOfTransaction") Date dateOfTransaction) {
-		
-		int id = portfolioService.updatePortfolioForUser(userId, stockId, stockName, price, totalQty, dateOfTransaction);
+			@PathVariable("stockId") int stockId, @PathVariable("price") float price,
+			@PathVariable("totalQty") int totalQty, @PathVariable("dateOfTransaction") Date dateOfTransaction) {
+
+		int id = portfolioService.updatePortfolioForUser(userId, stockId, price, totalQty, dateOfTransaction);
 		return ResponseEntity.ok().body("Portfolio updated for user Id : " + id);
 	}
 

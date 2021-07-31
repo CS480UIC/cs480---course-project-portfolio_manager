@@ -44,8 +44,8 @@ public class PortfolioServiceImpl implements PortfolioService {
 
 	@Override
 	@Transactional
-	public int updatePortfolioForUser(int userId, int stockId, String stockName, float price, int totalQty, Date dateOfTransaction) {
-		return portfolioDao.updatePortfolioForUser(userId, stockId, stockName, price, totalQty, dateOfTransaction);
+	public int updatePortfolioForUser(int userId, int stockId, float price, int totalQty, Date dateOfTransaction) {
+		return portfolioDao.updatePortfolioForUser(userId, stockId, price, totalQty, dateOfTransaction);
 	}
 
 	@Override

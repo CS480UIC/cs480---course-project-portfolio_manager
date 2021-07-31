@@ -7,6 +7,7 @@ public class UserPortfolio {
 
 	private int userId;
 	private String userName;
+	private int stockId;
 	private String stockName;
 	private float avgPrice;
 	private int quantity;
@@ -29,11 +30,12 @@ public class UserPortfolio {
 		this.latestTransactionDate = new SimpleDateFormat("yyyy-MM-dd").format(latestTransactionDate);
 	}
 
-	public UserPortfolio(int userId, String userName, String stockName, float avgPrice, int quantity,
+	public UserPortfolio(int userId, int stockId, String userName, String stockName, float avgPrice, int quantity,
 			String industryName, String exchangeName, Date latestTransactionDate) {
 		super();
 		this.userId = userId;
 		this.userName = userName;
+		this.stockId = stockId;
 		this.stockName = stockName;
 		this.avgPrice = avgPrice;
 		this.quantity = quantity;
@@ -68,6 +70,20 @@ public class UserPortfolio {
 	 */
 	public void setUserName(String userName) {
 		this.userName = userName;
+	}
+
+	/**
+	 * @return the stockId
+	 */
+	public int getStockId() {
+		return stockId;
+	}
+
+	/**
+	 * @param stockId the stockId to set
+	 */
+	public void setStockId(int stockId) {
+		this.stockId = stockId;
 	}
 
 	/**

@@ -62,7 +62,7 @@ public class PortfolioDaoImpl implements PortfolioDao {
 
 		Query<UserPortfolio> query = session.createQuery(
 				"select new edu.uic.cs480.utils.UserPortfolio( u.userId, u.user_name, "
-						+ "s.stock_name, p.avg_price, "
+				        + "s.stock_id, s.stock_name, p.avg_price, "
 						+ "p.quantity, sc.industry, "
 						+ "e.exchange_name, p.latest_transaction_date )"
 						+ " from edu.uic.cs480.model.Portfolio p" 
@@ -87,11 +87,10 @@ public class PortfolioDaoImpl implements PortfolioDao {
 	}
 
 	@Override
-	public int updatePortfolioForUser(int userId, int stockId, String stockName, float price, int totalQty, Date dateOfTransaction) {
+	public int updatePortfolioForUser(int userId, int stockId, float price, int totalQty, Date dateOfTransaction) {
 		Session session = sessionFactory.getCurrentSession();
 		PortfolioID portfolioId = new PortfolioID(userId, stockId);
 		Portfolio portfolio = session.byId(Portfolio.class).load(portfolioId);
-		portfolio.setStock_name(stockName);
 		portfolio.setQuantity(portfolio.getQuantity() + totalQty);
 		portfolio.setAvg_price((portfolio.getAvg_price() + price) / portfolio.getQuantity());
 		portfolio.setLatest_transaction_date(dateOfTransaction);
