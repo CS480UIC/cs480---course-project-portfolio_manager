@@ -12,7 +12,7 @@ public interface PortfolioDao {
 
 	List<UserPortfolio> getAllPortfolioForAllUser();
 
-	List<Portfolio> getPortfolioForUser(int userId);
+	List<UserPortfolio> getPortfolioForUser(int userId);
 
 	List<Portfolio> getPortfolioForStock(int stockId);
 

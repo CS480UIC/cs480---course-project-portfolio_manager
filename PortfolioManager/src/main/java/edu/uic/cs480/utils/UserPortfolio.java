@@ -10,13 +10,15 @@ public class UserPortfolio {
 	private String stockName;
 	private float avgPrice;
 	private int quantity;
+	private String industryName;
+	private String exchangeName;
 	private String latestTransactionDate;
 
 	public UserPortfolio() {
 		super();
 	}
 
-	public UserPortfolio(int userId, String userName, String stockName, float avgPrice, int quantity,//) {
+	public UserPortfolio(int userId, String userName, String stockName, float avgPrice, int quantity, // ) {
 			Date latestTransactionDate) {
 		super();
 		this.userId = userId;
@@ -25,6 +27,19 @@ public class UserPortfolio {
 		this.avgPrice = avgPrice;
 		this.quantity = quantity;
 		this.latestTransactionDate = new SimpleDateFormat("yyyy-MM-dd").format(latestTransactionDate);
+	}
+
+	public UserPortfolio(int userId, String userName, String stockName, float avgPrice, int quantity,
+			String industryName, String exchangeName, String latestTransactionDate) {
+		super();
+		this.userId = userId;
+		this.userName = userName;
+		this.stockName = stockName;
+		this.avgPrice = avgPrice;
+		this.quantity = quantity;
+		this.industryName = industryName;
+		this.exchangeName = exchangeName;
+		this.latestTransactionDate = latestTransactionDate;
 	}
 
 	/**
@@ -95,6 +110,34 @@ public class UserPortfolio {
 	 */
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
+	}
+
+	/**
+	 * @return the industryName
+	 */
+	public String getIndustryName() {
+		return industryName;
+	}
+
+	/**
+	 * @param industryName the industryName to set
+	 */
+	public void setIndustryName(String industryName) {
+		this.industryName = industryName;
+	}
+
+	/**
+	 * @return the exchangeName
+	 */
+	public String getExchangeName() {
+		return exchangeName;
+	}
+
+	/**
+	 * @param exchangeName the exchangeName to set
+	 */
+	public void setExchangeName(String exchangeName) {
+		this.exchangeName = exchangeName;
 	}
 
 	/**

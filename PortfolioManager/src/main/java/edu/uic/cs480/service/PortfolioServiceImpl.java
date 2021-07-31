@@ -32,7 +32,7 @@ public class PortfolioServiceImpl implements PortfolioService {
 
 	@Override
 	@Transactional
-	public List<Portfolio> getPortfolioForUser(int userId) {
+	public List<UserPortfolio> getPortfolioForUser(int userId) {
 		return portfolioDao.getPortfolioForUser(userId);
 	}
 

@@ -36,8 +36,8 @@ public class PortfolioController {
 	}
 
 	@GetMapping("/api/getPortfolioForUserId/{userId}")
-	public ResponseEntity<List<Portfolio>> getPortfolioForUserId(@PathVariable("userId") int userId) {
-		List<Portfolio> portfolioListForUser = portfolioService.getPortfolioForUser(userId);
+	public ResponseEntity<List<UserPortfolio>> getPortfolioForUserId(@PathVariable("userId") int userId) {
+		List<UserPortfolio> portfolioListForUser = portfolioService.getPortfolioForUser(userId);
 		return ResponseEntity.ok().body(portfolioListForUser);
 	}
 
