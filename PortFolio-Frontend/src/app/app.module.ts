@@ -12,6 +12,7 @@ import { SigninComponent } from './signin/signin.component';
 import { SignupComponent } from './signup/signup.component';
 import { UserPortfolioComponent } from './user-portfolio/user-portfolio.component';
 import { AdminPageComponent } from './admin-page/admin-page.component';
+import {MatTabsModule} from '@angular/material/tabs';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { AdminPageComponent } from './admin-page/admin-page.component';
     ReactiveFormsModule,
     MatSliderModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatTabsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

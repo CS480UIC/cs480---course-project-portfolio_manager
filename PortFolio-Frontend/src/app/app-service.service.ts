@@ -6,7 +6,7 @@ import {
   HttpClientModule,
   HttpParams
 } from "@angular/common/http";
-import { Observable, observable } from "rxjs";
+import { Observable } from "rxjs";
 
 @Injectable({
   providedIn: 'root'

@@ -28,5 +28,5 @@ PortfolioManager/.project/
 PortfolioManager/.gitignore/
 PortfolioManager/.classpath/
 PortFolio-Frontend/node_modules
-PortfolioManager/src/main/resources/
+PortfolioManager/src/main/resources/db.properties
 #
