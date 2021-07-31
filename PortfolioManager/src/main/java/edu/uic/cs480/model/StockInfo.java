@@ -14,10 +14,10 @@ public class StockInfo {
 	@Id
 	@Column(name = "stock_id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int stockID;
+	private int stock_id;
 	
 	@Column(name = "stock_name")
-	private String stockName;
+	private String stock_name;
 	
 	@ManyToOne
 	@JoinColumn(name = "category_id")
@@ -31,28 +31,28 @@ public class StockInfo {
 	 * @return the stockID
 	 */
 	public int getStockID() {
-		return stockID;
+		return stock_id;
 	}
 
 	/**
 	 * @param stockID the stockID to set
 	 */
 	public void setStockID(int stockID) {
-		this.stockID = stockID;
+		this.stock_id = stockID;
 	}
 
 	/**
 	 * @return the stockName
 	 */
 	public String getStockName() {
-		return stockName;
+		return stock_name;
 	}
 
 	/**
 	 * @param stockName the stockName to set
 	 */
 	public void setStockName(String stockName) {
-		this.stockName = stockName;
+		this.stock_name = stockName;
 	}
 
 	/**

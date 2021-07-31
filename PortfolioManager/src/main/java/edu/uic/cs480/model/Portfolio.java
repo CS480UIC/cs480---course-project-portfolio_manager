@@ -3,19 +3,27 @@ package edu.uic.cs480.model;
 import java.sql.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.IdClass;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-@Entity(name = "portofolio")
+@Entity(name = "portfolio")
+@IdClass(PortfolioID.class)
 public class Portfolio {
 
+	@Id
 	@ManyToOne
 	@JoinColumn(name = "user_id")
 	int user_id;
 	
+	@Id
 	@ManyToOne
 	@JoinColumn(name = "stock_id")
 	int stock_id;
+	
+	@ManyToOne
+	@JoinColumn(name = "stock_name")
 	String stock_name;
 	float avg_price;
 	int quantity;

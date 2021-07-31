@@ -33,7 +33,7 @@ public class ExchangeDaoImpl implements ExchangeDao {
 	public int updateExistingExchange(int exchangeId, int numberOfStocks) {
 		Session session = sessionFactory.getCurrentSession();
 		Exchange exchangeInfo = session.byId(Exchange.class).load(exchangeId);
-		exchangeInfo.setNumber_of_stocks(numberOfStocks);
+		exchangeInfo.setNumber_of_stock(numberOfStocks);
 		session.flush();
 
 		return exchangeId;

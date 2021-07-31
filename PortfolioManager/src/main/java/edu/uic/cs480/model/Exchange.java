@@ -45,14 +45,14 @@ public class Exchange {
 	/**
 	 * @return the number_of_stocks
 	 */
-	public int getNumber_of_stocks() {
+	public int getNumber_of_stock() {
 		return number_of_stock;
 	}
 
 	/**
-	 * @param number_of_stocks the number_of_stocks to set
+	 * @param number_of_stock the number_of_stock to set
 	 */
-	public void setNumber_of_stocks(int number_of_stock) {
+	public void setNumber_of_stock(int number_of_stock) {
 		this.number_of_stock = number_of_stock;
 	}
 
