@@ -55,8 +55,7 @@ public class PortfolioServiceImpl implements PortfolioService {
 
 	@Override
 	@Transactional
-	public void getGroupedDataAccordingToUsers(int userId) {
-		
-		
+	public List<UserPortfolio> getGroupedDataAccordingToUsers(int userId) {
+		return portfolioDao.getGroupedDataAccordingToUsers(userId);
 	}
 }

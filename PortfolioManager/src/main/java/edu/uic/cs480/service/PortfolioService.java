@@ -68,6 +68,7 @@ public interface PortfolioService {
 	 * implement to show grouped data according to user ID.
 	 * 
 	 * @param userId
+	 * @return
 	 */
-	void getGroupedDataAccordingToUsers(int userId);
+	List<UserPortfolio> getGroupedDataAccordingToUsers(int userId);
 }

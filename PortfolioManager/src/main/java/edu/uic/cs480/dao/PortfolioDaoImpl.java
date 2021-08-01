@@ -96,9 +96,21 @@ public class PortfolioDaoImpl implements PortfolioDao {
 		session.delete(portfolio);
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
-	public void getGroupedDataAccordingToUsers(int userId) {
-		// TODO Auto-generated method stub
-		
+	public List<UserPortfolio> getGroupedDataAccordingToUsers(int userId) {
+		Session session = sessionFactory.getCurrentSession();
+
+		Query<UserPortfolio> query = session
+				.createQuery("select new edu.uic.cs480.utils.UserPortfolio( u.userId, u.user_name, "
+						+ "count(s.stock_name), SUM(p.avg_price), SUM(p.quantity)"
+						+ " from edu.uic.cs480.model.Portfolio p"
+						+ " JOIN edu.uic.cs480.model.User u ON p.user_id = u.userId "
+						+ " JOIN edu.uic.cs480.model.StockInfo s ON p.stock_id = s.stock_id "
+						+ " where u.userId = " + userId 
+						+ " GROUP BY p.user_id");
+		List<UserPortfolio> results = query.list();
+
+		return results;
 	}
 }
