@@ -1,8 +1,5 @@
 package edu.uic.cs480.utils;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 /**
  * POJO class to contain all the details for portfolio to be displayed to user.
  * 
@@ -39,14 +36,14 @@ public class UserPortfolio {
 	 * @param latestTransactionDate
 	 */
 	public UserPortfolio(int userId, String userName, String stockName, float avgPrice, int quantity, // ) {
-			Date latestTransactionDate) {
+			String latestTransactionDate) {
 		super();
 		this.userId = userId;
 		this.userName = userName;
 		this.stockName = stockName;
 		this.avgPrice = avgPrice;
 		this.quantity = quantity;
-		this.latestTransactionDate = new SimpleDateFormat("yyyy-MM-dd").format(latestTransactionDate);
+		this.latestTransactionDate = latestTransactionDate;
 	}
 
 	/**
@@ -63,7 +60,7 @@ public class UserPortfolio {
 	 * @param latestTransactionDate
 	 */
 	public UserPortfolio(int userId, String userName, int stockId, String stockName, float avgPrice, int quantity,
-			String industryName, String exchangeName, Date latestTransactionDate) {
+			String industryName, String exchangeName, String latestTransactionDate) {
 		super();
 		this.userId = userId;
 		this.userName = userName;
@@ -73,7 +70,7 @@ public class UserPortfolio {
 		this.quantity = quantity;
 		this.industryName = industryName;
 		this.exchangeName = exchangeName;
-		this.latestTransactionDate = new SimpleDateFormat("yyyy-MM-dd").format(latestTransactionDate);
+		this.latestTransactionDate = latestTransactionDate;
 	}
 
 	/**
