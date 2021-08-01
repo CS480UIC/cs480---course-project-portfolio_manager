@@ -52,4 +52,11 @@ public class PortfolioServiceImpl implements PortfolioService {
 	public void deletePortfolioForUser(int userId, int stockId) {
 		portfolioDao.deletePortfolioForUser(userId, stockId);
 	}
+
+	@Override
+	@Transactional
+	public void getGroupedDataAccordingToUsers(int userId) {
+		
+		
+	}
 }

@@ -95,4 +95,10 @@ public class PortfolioDaoImpl implements PortfolioDao {
 		Portfolio portfolio = session.byId(Portfolio.class).load(portfolioId);
 		session.delete(portfolio);
 	}
+
+	@Override
+	public void getGroupedDataAccordingToUsers(int userId) {
+		// TODO Auto-generated method stub
+		
+	}
 }

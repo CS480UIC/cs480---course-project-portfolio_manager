@@ -63,4 +63,11 @@ public interface PortfolioDao {
 	 * @param stockId
 	 */
 	void deletePortfolioForUser(int userId, int stockId);
+
+	/**
+	 * implement to show grouped data according to user ID.
+	 * 
+	 * @param userId
+	 */
+	void getGroupedDataAccordingToUsers(int userId);
 }
