@@ -11,3 +11,25 @@
     </td>
   </tr>
 </table>
+
+<hr>
+<div class="col-lg-3 mb-3 sort">
+  <label for="userId">Group By User ID</label>
+  <input type="text" class="form-control" [(ngModel)]="userId" name="userId" id="userId"
+    placeholder = "Enter User ID" />
+  <button class="btn btn-success" (click)="groupByUser()">
+    Show Details
+  </button>
+</div>
+<table style="width:100%;">
+  <tr>
+    <th *ngFor="let values of groupByUserPortfolioHeadings">
+      {{values}}
+    </th>
+  </tr>
+  <tr *ngFor="let row of userPortfolioDataSorted">
+    <td *ngFor="let values of groupByUserPortfolioHeaders">
+      {{row[values]}}
+    </td>
+  </tr>
+</table>

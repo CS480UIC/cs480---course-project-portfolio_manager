@@ -103,7 +103,7 @@ public class PortfolioDaoImpl implements PortfolioDao {
 
 		Query<UserPortfolio> query = session
 				.createQuery("select new edu.uic.cs480.utils.UserPortfolio( u.userId, u.user_name, "
-						+ "count(s.stock_name), SUM(p.avg_price), SUM(p.quantity)"
+						+ "count(s.stock_name), SUM(p.avg_price), SUM(p.quantity))"
 						+ " from edu.uic.cs480.model.Portfolio p"
 						+ " JOIN edu.uic.cs480.model.User u ON p.user_id = u.userId "
 						+ " JOIN edu.uic.cs480.model.StockInfo s ON p.stock_id = s.stock_id "

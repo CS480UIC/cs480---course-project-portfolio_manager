@@ -107,4 +107,8 @@ export class AdminService {
   public getAllUserPortfolio() {
     return this.http.get(`${this.baseURL}/getAllPortfoliosForAllUsers`);
   }
+  public getGroupByPortfolio(userId: any) {
+    return this.http.get(`${this.baseURL}/getGroupedDataAccordingToUsers/${userId}`);
+  }
+  
 }
