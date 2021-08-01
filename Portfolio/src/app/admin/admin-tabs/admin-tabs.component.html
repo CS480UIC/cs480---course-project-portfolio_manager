@@ -1,0 +1,15 @@
+<div class="admin">
+  <h1>Welcome {{adminName.userId}}</h1>
+  <hr>
+  <div>
+    <nav mat-tab-nav-bar>
+        <a mat-tab-link *ngFor="let link of navLinks" [routerLink]="link.link" 
+        routerLinkActive #rla="routerLinkActive"
+        [active]="rla.isActive">
+       {{link.label}}
+      </a>
+      </nav>
+  </div>
+</div>
+<router-outlet></router-outlet>
+

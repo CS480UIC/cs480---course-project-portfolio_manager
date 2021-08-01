@@ -1,0 +1,65 @@
+<h1>Exchange Table</h1>
+
+<table style="width:100%;">
+  <tr>
+    <th *ngFor="let values of exchangeHeadings">
+      {{values}}
+    </th>
+  </tr>
+  <tr *ngFor="let row of exchangeData">
+    <td *ngFor="let values of exchangeHeaders">
+      {{row[values]}}
+    </td>
+  </tr>
+</table>
+
+
+<form style="margin-top: 30px;">
+  <div class="form-group row">
+    <div class="col-lg-3 mb-3" style="text-align: start;">
+      <label for="numberOfStocks">Create Exchange</label>
+      <input type="text" class="form-control" [(ngModel)]="exchangeName" name="exchangeName" id="exchangeName"
+        placeholder="Exchange Name" />
+      <input type="text" class="form-control" [(ngModel)]="numOfStocks" name="numOfStocks" id="numOfStocks"
+        placeholder="Number Of Stocks" />
+      <button class="btn btn-success" (click)="createExchange()">
+        Create
+      </button>
+    </div>
+
+    <div class="col-lg-3 mb-3" style="text-align: start;">
+      <label for="numberOfStocks">Update Exchange</label>
+      <input type="text" class="form-control" [(ngModel)]="exchangeId" name="exchangeId" id="exchangeId"
+        placeholder="Exchange Id" />
+      <input type="text" class="form-control" [(ngModel)]="numOfStocks" name="numOfStocks" id="numOfStocks"
+        placeholder="Number Of Stocks" />
+      <button class="btn btn-warning" (click)="updateExchange()">
+        Update
+      </button>
+      
+    </div>
+
+
+
+    <div class="col-lg-3 input-group-lg" style="text-align: start;">
+      <label for="exchangeId">Delete Exchange</label>
+      <input type="text" class="form-control" [(ngModel)]="exchangeId" name="exchangeId" id="exchangeId"
+        placeholder="Exchange Id" />
+
+      <button class="btn btn-danger" (click)="deleteExchange()">
+        Delete
+      </button>
+    </div>
+    <div class="col-lg-3 mb-3 sort">
+      <h2>Sort By</h2>
+      <button class="btn btn-success" (click)="sortById()">
+        Exchange ID
+      </button>
+      <button class="btn btn-success" (click)="sortByName()">
+        Exchange Name
+      </button>
+    </div>
+
+
+  </div>
+</form>

@@ -1,0 +1,13 @@
+<h1>Users Portfolio</h1>
+<table style="width:100%;">
+  <tr>
+    <th *ngFor="let values of userPortfolioHeadings">
+      {{values}}
+    </th>
+  </tr>
+  <tr *ngFor="let row of userPortfolioData">
+    <td *ngFor="let values of userPortfolioHeaders">
+      {{row[values]}}
+    </td>
+  </tr>
+</table>

@@ -1,0 +1,71 @@
+<h1>Stock Info</h1>
+<table style="width:100%;">
+  <tr>
+    <th *ngFor="let values of stockHeaders">
+      {{values}}
+    </th>
+  </tr>
+  <tr *ngFor="let row of stockData">
+    <td *ngFor="let values of exchangeHeadings">
+      {{row[values]}}
+    </td>
+  </tr>
+</table>
+
+<form style="margin-top: 30px;">
+  <div class="form-group row">
+
+    <div class="col-lg-4 mb-3" style="text-align: start;">
+      <label for="stockCreate">Create Stock</label>
+      <input type="text" class="form-control" [(ngModel)]="stockName" name="stockName" id="stockName"
+        placeholder="Stock Name" />
+      <div class="createdropdown">
+        <mat-form-field appearance="fill">
+          <mat-label>Select Exchange</mat-label>
+          <mat-select [(ngModel)]="selectedExchangeId" name="exchange">
+            <mat-option *ngFor="let exchange of exchangeData" [value]="exchange.exchange_id">
+              {{exchange.exchange_id}}. {{exchange.exchange_name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Select Category</mat-label>
+          <mat-select [(ngModel)]="selectedCategoryId" name="category">
+            <mat-option *ngFor="let category of stockCategoryData" [value]="category.category_id">
+              {{category.category_id}}. {{category.industry}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <button class="btn btn-success" (click)="createStock()">
+        Create Stock
+      </button>
+
+    </div>
+
+    <div class="col-lg-4 mb-3" style="text-align: start;">
+      <label for="stockName">Update Stock</label>
+      <input type="text" class="form-control" [(ngModel)]="stockId" name="stockId" id="stockId"
+        placeholder="Stock Id" />
+      <input type="text" class="form-control" [(ngModel)]="stockName" name="stockName" id="stockName"
+        placeholder="Stock Name" />
+      <button class="btn btn-warning" (click)="updateStock()">
+        Update
+      </button>
+    </div>
+
+    <div class="col-lg-4 input-group-lg" style="text-align: start;">
+      <label for="stockID">Delete Stock</label>
+      <input type="text" class="form-control" [(ngModel)]="stockId" name="stockId" id="stockId"
+        placeholder="Stock Id" />
+
+      <button class="btn btn-danger" (click)="deleteStock()">
+        Delete
+      </button>
+    </div>
+
+
+
+  </div>
+</form>
