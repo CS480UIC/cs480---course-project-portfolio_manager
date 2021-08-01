@@ -1,6 +1,5 @@
 package edu.uic.cs480.dao;
 
-import java.sql.Date;
 import java.util.List;
 
 import org.hibernate.Session;
@@ -62,8 +61,8 @@ public class PortfolioDaoImpl implements PortfolioDao {
 						+ " JOIN edu.uic.cs480.model.User u" + " ON p.user_id = u.userId "
 						+ " JOIN edu.uic.cs480.model.StockInfo s " + " ON p.stock_id = s.stock_id "
 						+ " JOIN edu.uic.cs480.model.StockCategory sc" + " ON s.category_id = sc.category_id"
-						+ " JOIN edu.uic.cs480.model.Exchange e"
-						+ " ON s.exchange_id = e.exchange_id where u.userId = " + userId);
+						+ " JOIN edu.uic.cs480.model.Exchange e" + " ON s.exchange_id = e.exchange_id where u.userId = "
+						+ userId);
 		List<UserPortfolio> results = query.list();
 
 		return results;
@@ -82,7 +81,8 @@ public class PortfolioDaoImpl implements PortfolioDao {
 		PortfolioID portfolioId = new PortfolioID(userId, stockId);
 		Portfolio portfolio = session.byId(Portfolio.class).load(portfolioId);
 		portfolio.setQuantity(portfolio.getQuantity() + totalQty);
-		portfolio.setAvg_price((portfolio.getAvg_price() + price) / portfolio.getQuantity());
+		portfolio.setAvg_price(
+				((portfolio.getAvg_price() * portfolio.getQuantity()) + (price * totalQty)) / portfolio.getQuantity());
 		portfolio.setLatest_transaction_date(dateOfTransaction);
 
 		return portfolio.getUser_id();
@@ -106,9 +106,8 @@ public class PortfolioDaoImpl implements PortfolioDao {
 						+ "count(s.stock_name),  ROUND(SUM(p.avg_price), 2), SUM(p.quantity))"
 						+ " from edu.uic.cs480.model.Portfolio p"
 						+ " JOIN edu.uic.cs480.model.User u ON p.user_id = u.userId "
-						+ " JOIN edu.uic.cs480.model.StockInfo s ON p.stock_id = s.stock_id "
-						+ " where u.userId = " + userId 
-						+ " GROUP BY p.user_id");
+						+ " JOIN edu.uic.cs480.model.StockInfo s ON p.stock_id = s.stock_id " + " where u.userId = "
+						+ userId + " GROUP BY p.user_id");
 		List<UserPortfolio> results = query.list();
 
 		return results;
