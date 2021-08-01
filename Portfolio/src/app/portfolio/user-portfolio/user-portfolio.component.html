@@ -1,0 +1,72 @@
+<h1>Welcome {{userName}}</h1>
+<h1>PortFolio Data</h1>
+<table style="width:100%;">
+  <tr>
+    <th *ngFor="let values of portfolioHeadings">
+      {{values}}
+    </th>
+  </tr>
+  <tr *ngFor="let row of portfolioData">
+    <td *ngFor="let values of portfolioHeaders">
+      {{row[values]}}
+    </td>
+  </tr>
+</table>
+
+<form style="margin-top: 30px;">
+  <div class="form-group row">
+
+    <div class="col-lg-4 mb-3" style="text-align: start;">
+      <label for="avgPrice">Create Stock</label>
+      <input type="text" class="form-control" [(ngModel)]="avgPrice" name="avgPrice" id="avgPrice"
+        placeholder="Average Price" />
+      <input type="text" class="form-control" [(ngModel)]="quantity" name="quantity" id="quantity"
+        placeholder="Quantity" />
+      <input type="text" class="form-control" [(ngModel)]="createdDate" name="createdDate" id="createdDate"
+        placeholder="Date (yyyy-mm-dd)" required />
+      <div class="createdropdown">
+        <mat-form-field appearance="fill">
+          <mat-label>Select Stock</mat-label>
+          <mat-select [(ngModel)]="selectedStockId" name="stockName">
+            <mat-option *ngFor="let stock of stockData" [value]="stock.stockId">
+              {{stock.stockId}}. {{stock.stockName}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+      </div>
+      <button class="btn btn-success" (click)="createPortfolio()">
+        Add New Stock
+      </button>
+
+    </div>
+
+    <div class="col-lg-4 mb-3" style="text-align: start;">
+      <label for="stockName">Update Stock Details</label>
+      <input type="text" class="form-control" [(ngModel)]="stockId" name="stockId" id="stockId"
+        placeholder="Stock Id" />
+      <input type="text" class="form-control" [(ngModel)]="avgPrice" name="avgPrice" id="avgPrice"
+        placeholder="Transaction Cost" />
+      <input type="text" class="form-control" [(ngModel)]="quantity" name="quantity" id="quantity"
+        placeholder="Quantity" />
+      <input type="text" class="form-control" [(ngModel)]="createdDate" name="createdDate" id="createdDate"
+        placeholder="Date (yyyy-mm-dd)" required />
+      <button class="btn btn-warning" (click)="updateStock()">
+        Update
+      </button>
+    </div>
+
+    <div class="col-lg-4 input-group-lg" style="text-align: start;">
+      <label for="stockID">Delete Stock</label>
+      <input type="text" class="form-control" [(ngModel)]="stockId" name="stockId" id="stockId"
+        placeholder="Stock Id" />
+
+      <button class="btn btn-danger" (click)="deleteStock()">
+        Delete
+      </button>
+    </div>
+
+
+
+  </div>
+</form>

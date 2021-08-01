@@ -1,0 +1,24 @@
+<h1>User List</h1>
+<table style="width:100%;">
+  <tr>
+    <th *ngFor="let values of userHeadings">
+      {{values}}
+    </th>
+  </tr>
+  <tr *ngFor="let row of userData">
+    <td *ngFor="let values of userHeaders">
+      {{row[values]}}
+    </td>
+  </tr>
+</table>
+<form style="text-align: start;">
+  <div class="form-group row" style="margin-top: 20px;">
+    <div class="col-lg-4 input-group-lg">
+      <label for="userId">Delete User</label>
+      <input type="text" class="form-control" [(ngModel)]="userId" name="userId" id="userId" placeholder="User Id" />
+      <button class="btn btn-danger" (click)="deleteUser()">
+        Submit
+      </button>
+    </div>
+  </div>
+</form>

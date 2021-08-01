@@ -1,0 +1,61 @@
+<h1>Stock Catergory Table</h1>
+<table style="width:100%;">
+  <tr>
+    <th *ngFor="let values of stockCategoryHeadings">
+      {{values}}
+    </th>
+  </tr>
+  <tr *ngFor="let row of stockCategoryData">
+    <td *ngFor="let values of stockCategoryHeaders">
+      {{row[values]}}
+    </td>
+  </tr>
+</table>
+
+<form style="margin-top: 30px;">
+  <div class="form-group row">
+    <div class="col-lg-3 mb-3" style="text-align: start;">
+      <label for="UpdateMarketCap">Create Stock Catergory</label>
+      <input type="text" class="form-control" [(ngModel)]="industry" name="industry" id="industry"
+        placeholder="Industry" />
+      <input type="text" class="form-control" [(ngModel)]="marketCap" name="marketCap" id="marketCap"
+        placeholder="Market Cap" />
+      <button class="btn btn-success" (click)="createStockCategory()">
+        Create
+      </button>
+    </div>
+
+    <div class="col-lg-3 mb-3" style="text-align: justify;">
+        <label for="UpdateMarketCap">Update Stock Catergory</label>
+        <input type="text" class="form-control" [(ngModel)]="categoryId" name="categoryId" id="categoryId"
+          placeholder="Stock Id" />
+        <input type="text" class="form-control" [(ngModel)]="marketCap" name="marketCap" id="marketCap"
+          placeholder="Market Cap" />
+  
+        <button class="btn btn-warning" (click)="updateStockCategory()">
+          Update
+        </button>
+      </div>
+
+
+    <div class="col-lg-3 input-group-lg">
+      <label for="stockId">Delete Stock Catergory</label>
+      <input type="text" class="form-control" [(ngModel)]="categoryId" name="categoryId" id="categoryId"
+        placeholder="Stock Id" />
+      <button class="btn btn-danger" (click)="deleteStockCategory()">
+        Delete
+      </button>
+    </div>
+
+    <div class="col-lg-3 mb-3 sort">
+      <h2>Sort By</h2>
+      <button class="btn btn-success" (click)="sortById()">
+        Exchange ID
+      </button>
+      <button class="btn btn-success" (click)="sortByName()">
+        Exchange Name
+      </button>
+    </div>
+
+  </div>
+</form>
