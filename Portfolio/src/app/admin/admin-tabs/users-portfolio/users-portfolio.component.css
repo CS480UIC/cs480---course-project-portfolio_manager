@@ -6,7 +6,8 @@ tr {
   margin-right: 20px;
   text-align: center;
 }
-th{
+
+th {
   color: aqua;
   font-weight: 100;
 }
@@ -38,18 +39,26 @@ h1 {
 
 .flex-child {
   flex: auto;
-}  
+}
 
-label{
+label {
   margin-bottom: 20px;
   font-size: 22px;
   font-weight: 400;
 }
-mat-label, mat-select, mat-option {
+
+mat-label,
+mat-select,
+mat-option {
   color: black;
 }
 
-.createdropdown{
+.createdropdown {
   text-align: center;
 }
 
+.sort {
+  margin: 25px;
+  color: antiquewhite;
+  text-align: start;
+}

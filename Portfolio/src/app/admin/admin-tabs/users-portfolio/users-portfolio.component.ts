@@ -12,6 +12,12 @@ export class UsersPortfolioComponent implements OnInit {
   userPortfolioHeadings = ["User Id", "User Name", "Stock Name", "Quantity", 
                           "Average Price", "latest Transaction Date"];
   userPortfolioData: any;
+  userPortfolioDataSorted:any;
+  userId: any;
+
+  groupByUserPortfolioHeaders = ["userId", "userName", "numberOfStocks", "quantity", "avgPrice"];
+  groupByUserPortfolioHeadings = ["User Id", "User Name", "Number Of Different Stocks", "Total Quantity", 
+                          "Total Investment"];
 
   constructor(
     private _router: Router,
@@ -24,6 +30,18 @@ export class UsersPortfolioComponent implements OnInit {
     this.appService.getAllUserPortfolio().subscribe(
       apiResponse => {
         this.userPortfolioData = apiResponse;
+      },
+      err => {
+        alert("some error occured");
+      }
+    );
+  }
+  groupByUser(){
+    //get all users portfolios
+    this.appService.getGroupByPortfolio(this.userId).subscribe(
+      apiResponse => {
+        console.log(apiResponse)
+        this.userPortfolioDataSorted = apiResponse;
       },
       err => {
         alert("some error occured");

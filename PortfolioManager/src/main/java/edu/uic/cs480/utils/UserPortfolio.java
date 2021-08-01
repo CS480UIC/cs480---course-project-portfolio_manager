@@ -11,9 +11,9 @@ public class UserPortfolio {
 	private int userId;
 	private String userName;
 	private int stockId;
-	private int numberOfStocks;
+	private long numberOfStocks;
 	private String stockName;
-	private float avgPrice;
+	private double avgPrice;
 	private int quantity;
 	private String industryName;
 	private String exchangeName;
@@ -83,13 +83,13 @@ public class UserPortfolio {
 	 * @param avgPrice
 	 * @param quantity
 	 */
-	public UserPortfolio(int userId, String userName, int numberOfStocks, float avgPrice, int quantity) {
+	public UserPortfolio(int userId, String userName, long numberOfStocks, double avgPrice, long quantity) {
 		super();
 		this.userId = userId;
 		this.userName = userName;
 		this.numberOfStocks = numberOfStocks;
 		this.avgPrice = avgPrice;
-		this.quantity = quantity;
+		this.quantity = (int) quantity;
 	}
 
 	/**
@@ -137,14 +137,14 @@ public class UserPortfolio {
 	/**
 	 * @return the numberOfStocks
 	 */
-	public int getNumberOfStocks() {
+	public long getNumberOfStocks() {
 		return numberOfStocks;
 	}
 
 	/**
 	 * @param numberOfStocks the numberOfStocks to set
 	 */
-	public void setNumberOfStocks(int numberOfStocks) {
+	public void setNumberOfStocks(long numberOfStocks) {
 		this.numberOfStocks = numberOfStocks;
 	}
 
@@ -165,14 +165,14 @@ public class UserPortfolio {
 	/**
 	 * @return the avgPrice
 	 */
-	public float getAvgPrice() {
+	public double getAvgPrice() {
 		return avgPrice;
 	}
 
 	/**
 	 * @param avgPrice the avgPrice to set
 	 */
-	public void setAvgPrice(float avgPrice) {
+	public void setAvgPrice(double avgPrice) {
 		this.avgPrice = avgPrice;
 	}
 
