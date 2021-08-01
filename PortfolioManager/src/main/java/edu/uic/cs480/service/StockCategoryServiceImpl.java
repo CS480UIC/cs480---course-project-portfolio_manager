@@ -35,6 +35,7 @@ public class StockCategoryServiceImpl implements StockCategoryService {
 	}
 
 	@Override
+	@Transactional
 	public List<StockCategory> getAllStockCategoriesSortedByIndustry() {
 		return stockCategoryDao.getAllStockCategoriesSortedByIndustry();
 	}
