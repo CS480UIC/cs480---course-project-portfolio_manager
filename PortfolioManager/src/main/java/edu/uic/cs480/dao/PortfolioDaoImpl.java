@@ -82,7 +82,7 @@ public class PortfolioDaoImpl implements PortfolioDao {
 		Portfolio portfolio = session.byId(Portfolio.class).load(portfolioId);
 		portfolio.setQuantity(portfolio.getQuantity() + totalQty);
 		portfolio.setAvg_price(
-				((portfolio.getAvg_price() * portfolio.getQuantity()) + (price * totalQty)) / portfolio.getQuantity());
+				((portfolio.getAvg_price() * (portfolio.getQuantity() - totalQty)) + (price * totalQty)) / portfolio.getQuantity());
 		portfolio.setLatest_transaction_date(dateOfTransaction);
 
 		return portfolio.getUser_id();
