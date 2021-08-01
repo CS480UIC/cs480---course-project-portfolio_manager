@@ -77,7 +77,7 @@ public class PortfolioDaoImpl implements PortfolioDao {
 	}
 
 	@Override
-	public int updatePortfolioForUser(int userId, int stockId, float price, int totalQty, Date dateOfTransaction) {
+	public int updatePortfolioForUser(int userId, int stockId, float price, int totalQty, String dateOfTransaction) {
 		Session session = sessionFactory.getCurrentSession();
 		PortfolioID portfolioId = new PortfolioID(userId, stockId);
 		Portfolio portfolio = session.byId(Portfolio.class).load(portfolioId);

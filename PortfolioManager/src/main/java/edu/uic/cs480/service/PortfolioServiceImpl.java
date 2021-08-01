@@ -1,6 +1,5 @@
 package edu.uic.cs480.service;
 
-import java.sql.Date;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -44,7 +43,7 @@ public class PortfolioServiceImpl implements PortfolioService {
 
 	@Override
 	@Transactional
-	public int updatePortfolioForUser(int userId, int stockId, float price, int totalQty, Date dateOfTransaction) {
+	public int updatePortfolioForUser(int userId, int stockId, float price, int totalQty, String dateOfTransaction) {
 		return portfolioDao.updatePortfolioForUser(userId, stockId, price, totalQty, dateOfTransaction);
 	}
 

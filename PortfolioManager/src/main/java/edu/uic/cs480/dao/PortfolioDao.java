@@ -1,6 +1,5 @@
 package edu.uic.cs480.dao;
 
-import java.sql.Date;
 import java.util.List;
 
 import edu.uic.cs480.model.Portfolio;
@@ -55,7 +54,7 @@ public interface PortfolioDao {
 	 * @param dateOfTransaction
 	 * @return
 	 */
-	int updatePortfolioForUser(int userId, int stockId, float price, int totalQty, Date dateOfTransaction);
+	int updatePortfolioForUser(int userId, int stockId, float price, int totalQty, String dateOfTransaction);
 
 	/**
 	 * implement to delete portfolio for a given user.

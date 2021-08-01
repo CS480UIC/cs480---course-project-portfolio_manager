@@ -11,17 +11,18 @@ import edu.uic.cs480.utils.PortfolioID;
 @Entity(name = "portfolio")
 @IdClass(PortfolioID.class)
 public class Portfolio {
-	
-	public Portfolio(){}
+
+	public Portfolio() {
+	}
 
 	@Id
 	int user_id;
-	
+
 	@Id
 	int stock_id;
 	float avg_price;
 	int quantity;
-	Date latest_transaction_date;
+	String latest_transaction_date;
 
 	/**
 	 * @return the user_id
@@ -82,16 +83,15 @@ public class Portfolio {
 	/**
 	 * @return the latest_transaction_date
 	 */
-	public Date getLatest_transaction_date() {
+	public String getLatest_transaction_date() {
 		return latest_transaction_date;
 	}
 
 	/**
 	 * @param latest_transaction_date the latest_transaction_date to set
 	 */
-	public void setLatest_transaction_date(Date latest_transaction_date) {
+	public void setLatest_transaction_date(String latest_transaction_date) {
 		this.latest_transaction_date = latest_transaction_date;
 	}
 
-	
 }

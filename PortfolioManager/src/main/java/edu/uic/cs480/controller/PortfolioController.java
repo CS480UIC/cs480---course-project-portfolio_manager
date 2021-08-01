@@ -1,7 +1,6 @@
 
 package edu.uic.cs480.controller;
 
-import java.sql.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -80,7 +79,7 @@ public class PortfolioController {
 	@PutMapping("/api/updatePortfolioForUser/{userId}/{stockId}/{price}/{totalQty}/{dateOfTransaction}")
 	public ResponseEntity<?> updatePortfolioForUser(@PathVariable("userId") int userId,
 			@PathVariable("stockId") int stockId, @PathVariable("price") float price,
-			@PathVariable("totalQty") int totalQty, @PathVariable("dateOfTransaction") Date dateOfTransaction) {
+			@PathVariable("totalQty") int totalQty, @PathVariable("dateOfTransaction") String dateOfTransaction) {
 
 		int id = portfolioService.updatePortfolioForUser(userId, stockId, price, totalQty, dateOfTransaction);
 		return ResponseEntity.ok().body("Portfolio updated for user Id : " + id);
@@ -93,7 +92,7 @@ public class PortfolioController {
 	 * @param stockId
 	 * @return
 	 */
-	@DeleteMapping("/api/deletePortfolio/{userId}")
+	@DeleteMapping("/api/deletePortfolio/{userId}/{stockId}")
 	public ResponseEntity<?> deletePortfolioForUser(@PathVariable("userId") int userId,
 			@PathVariable("stockId") int stockId) {
 		portfolioService.deletePortfolioForUser(userId, stockId);

@@ -1,6 +1,5 @@
 package edu.uic.cs480.service;
 
-import java.sql.Date;
 import java.util.List;
 
 import edu.uic.cs480.model.Portfolio;
@@ -16,7 +15,7 @@ public interface PortfolioService {
 
 	List<Portfolio> getPortfolioForStock(int stockId);
 
-	int updatePortfolioForUser(int userId, int stockId, float price, int totalQty, Date dateOfTransaction);
+	int updatePortfolioForUser(int userId, int stockId, float price, int totalQty, String dateOfTransaction);
 
 	void deletePortfolioForUser(int userId, int stockId);
 }
