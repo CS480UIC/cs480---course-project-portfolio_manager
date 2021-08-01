@@ -29,6 +29,7 @@ public class ExchangeServiceImpl implements ExchangeService {
 	}
 	
 	@Override
+	@Transactional
 	public List<Exchange> getAllExchangesSortedByName() {
 		return exchangeDao.getAllExchangesSortedByName();
 	}
