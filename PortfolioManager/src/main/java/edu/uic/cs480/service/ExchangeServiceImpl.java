@@ -10,6 +10,12 @@ import org.springframework.stereotype.Service;
 import edu.uic.cs480.dao.ExchangeDao;
 import edu.uic.cs480.model.Exchange;
 
+/**
+ * implemented to provide service for exchanges table.
+ * 
+ * @author Arvind Gupta
+ *
+ */
 @Service
 public class ExchangeServiceImpl implements ExchangeService {
 
@@ -27,7 +33,7 @@ public class ExchangeServiceImpl implements ExchangeService {
 	public List<Exchange> getAllExchanges() {
 		return exchangeDao.getAllExchanges();
 	}
-	
+
 	@Override
 	@Transactional
 	public List<Exchange> getAllExchangesSortedByName() {

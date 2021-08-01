@@ -99,4 +99,15 @@ public class PortfolioController {
 		return ResponseEntity.ok().body("Portfolio deleted for the user ID : " + userId);
 	}
 
+	/**
+	 * implemented to get user data grouped according to user id.
+	 * 
+	 * @param userId
+	 * @return
+	 */
+	@GetMapping("/api/getGroupedDataAccordingToUsers/{userId}")
+	public ResponseEntity<List<UserPortfolio>> getGroupedDataAccordingToUsers(@PathVariable("userId") int userId) {
+		List<UserPortfolio> groupedListForUser = portfolioService.getGroupedDataAccordingToUsers(userId);
+		return ResponseEntity.ok().body(groupedListForUser);
+	}
 }

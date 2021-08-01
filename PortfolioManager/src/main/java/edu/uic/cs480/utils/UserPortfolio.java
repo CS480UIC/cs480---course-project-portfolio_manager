@@ -11,6 +11,7 @@ public class UserPortfolio {
 	private int userId;
 	private String userName;
 	private int stockId;
+	private int numberOfStocks;
 	private String stockName;
 	private float avgPrice;
 	private int quantity;
@@ -74,6 +75,24 @@ public class UserPortfolio {
 	}
 
 	/**
+	 * constructor.
+	 * 
+	 * @param userId
+	 * @param userName
+	 * @param numberOfStocks
+	 * @param avgPrice
+	 * @param quantity
+	 */
+	public UserPortfolio(int userId, String userName, int numberOfStocks, float avgPrice, int quantity) {
+		super();
+		this.userId = userId;
+		this.userName = userName;
+		this.numberOfStocks = numberOfStocks;
+		this.avgPrice = avgPrice;
+		this.quantity = quantity;
+	}
+
+	/**
 	 * @return the userId
 	 */
 	public int getUserId() {
@@ -113,6 +132,20 @@ public class UserPortfolio {
 	 */
 	public void setStockId(int stockId) {
 		this.stockId = stockId;
+	}
+
+	/**
+	 * @return the numberOfStocks
+	 */
+	public int getNumberOfStocks() {
+		return numberOfStocks;
+	}
+
+	/**
+	 * @param numberOfStocks the numberOfStocks to set
+	 */
+	public void setNumberOfStocks(int numberOfStocks) {
+		this.numberOfStocks = numberOfStocks;
 	}
 
 	/**
