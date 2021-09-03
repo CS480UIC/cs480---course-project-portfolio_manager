@@ -10,9 +10,7 @@ cs480---course-project-portfolio_manager created by GitHub Classroom
 portfolio_manager
 
 # Author(s)
-1. Arvind Gupta
-2. Stefan Vukovic
-3. Vivek Mishra
+Vivek Mishra
 
 
 # Database description
